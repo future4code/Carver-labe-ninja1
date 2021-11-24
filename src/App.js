@@ -14,12 +14,12 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    pagina: ""
+    pagina: "cadastro"
   }
   escolherPagina = () => {
     switch (this.state.pagina) {
       case "cadastro":
-        
+        return <CadastroPage /> 
       default:
         return <CadastroPage />
     }
