@@ -4,6 +4,11 @@ import Logo from '../img/logo.png';
 import IconCarrinho from '../img/cart.png';
 import Lupa from "../img/search-3-32.png"
 import IconAddCarrinho from "../img/addCart.png"
+
+
+
+
+
 const HeaderHomeECadastro = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -14,12 +19,18 @@ const HeaderHomeECadastro = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
+
+
+
     span{
         background-color: #7869BF;
         font-size: 21px;
         color: #F5F5F5;
         border: none;
-    }
+
+    } 
+
+
 `
 const ListadeServicos = styled.div`
     background-color: #7869BF;
@@ -32,8 +43,13 @@ const ListadeServicos = styled.div`
     height: 66px;
     width: 100vw;
     padding: 0 50px;
+
+    
     span{
-     background-color: #7869BF;
+        background-color: #7869BF;
+
+
+
         font-size: 21px;
         color: #F5F5F5;
         border: none;
@@ -46,6 +62,9 @@ const ListadeServicos = styled.div`
         height: 40px;
         width: 400px;
         color: white;
+
+
+
         &:hover{
             background-color: #9A8FCF;
             cursor: pointer;
@@ -66,6 +85,7 @@ const Carrinho = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
+
     span{
         background-color: #7869BF;
         font-size: 21px;
@@ -82,13 +102,17 @@ const Detalhes = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
+
+
     span{
         background-color: #7869BF;
         font-size: 21px;
         color: #F5F5F5;
         border: none;
+
     }
 `
+
 const LogoButton = styled.div`
     height: 75%;
     width: 150px;
@@ -97,24 +121,29 @@ const LogoButton = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 30px;
+
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
     }
+    
     img{
         width: 40px;
         color: #F5F5F5;
-    }
+    } 
 `
+
 const DivInput = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
     img{
         width: 25px;
         height: 25px;
     }
 `
+
 const IconeCarrinho = styled.div`
     border-radius: 80px;
     height: 75%;
@@ -123,12 +152,15 @@ const IconeCarrinho = styled.div`
     align-items: center;
     justify-content: center;
     margin-right: 30px;
+
     img{
         width: 25px;
     }
+    
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
+
     }
 `
 export default class Header extends React.Component {
@@ -153,28 +185,29 @@ export default class Header extends React.Component {
                 return (
                     <HeaderHomeECadastro>
                         <LogoButton>
-                            <img alt="logo" src={Logo}></img>
-                            <span>LabeNinjas</span>
-                        </LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
                     </HeaderHomeECadastro>
                 )
             case "Cadastro":
                 return (
                     <HeaderHomeECadastro>
                         <LogoButton>
-                            <img alt="logo" src={Logo}></img>
-                            <span>LabeNinjas</span>
-                        </LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
                     </HeaderHomeECadastro>
                 )
             case "Lista de Serviços":
                 return (
                     <ListadeServicos>
-                        <LogoButton>
-                            <img alt="logo" src={Logo}></img>
-                            <span>LabeNinjas</span>
-                        </LogoButton>
-                        <DivInput>
+
+                       <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
+                       <DivInput>
                             <img alt="Icon de lupa" src={Lupa} />
                             <input placeholder="Busca"></input>
                         </DivInput>
@@ -205,9 +238,10 @@ export default class Header extends React.Component {
                 return (
                     <Carrinho>
                         <LogoButton>
-                            <img alt="logo" src={Logo}></img>
-                            <span>LabeNinjas</span>
-                        </LogoButton>
+
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
                         <IconeCarrinho>
                             <span>
                                 <img alt="Icone Carrinho" src={IconAddCarrinho} />
@@ -219,9 +253,9 @@ export default class Header extends React.Component {
                 return (
                     <div>
                         <LogoButton>
-                            <img alt="logo" src={Logo}></img>
-                            <button>LabeNinjas</button>
-                        </LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <button>LabeNinjas</button>
+                       </LogoButton>
                     </div>
                 )
         }
