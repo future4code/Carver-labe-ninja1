@@ -5,6 +5,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
+import Header from './Header'
 
 const CadastroContainer = styled.div`
 display: flex;
@@ -15,7 +16,9 @@ flex-direction: column;
 
 export default class CadastroPage extends React.Component {
   render() {
-    return (
+    return (<div>
+
+<Header/>
       <CadastroContainer>
         <h1>Cadastre o seu serviço</h1>
         <TextField
@@ -26,20 +29,27 @@ export default class CadastroPage extends React.Component {
         />
         <TextField
           id="outlined-basic"
-          label="Descrição"
+          placeholder="Descrição"
           variant="outlined"
           margin="dense"
         />
-        <FormControl fullWidth sx={{ m: 1 }}>
-          <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-          <OutlinedInput
-            id="outlined-adornment-amount"
-            value={"ss"}
-            startAdornment={<InputAdornment position="start">$</InputAdornment>}
-            label="Amount"
-          />
-        </FormControl>
+
+        <OutlinedInput
+          id="outlined-adornment-amount"
+          startAdornment={<InputAdornment position="start">R$</InputAdornment>}
+          placeholder="Descrição"
+
+        />
+        <TextField
+          hiddenLabel
+          id="filled-hidden-label-small"
+          defaultValue="Small"
+          variant="filled"
+          size="small"
+        />
+        <TextField id="filled-basic" label="Filled" variant="filled" />
       </CadastroContainer>
+    </div>
     )
   }
 }
