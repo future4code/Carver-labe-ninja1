@@ -4,8 +4,6 @@ import Logo from '../img/logo.png';
 import IconCarrinho from '../img/cart.png';
 import Lupa from "../img/search-3-32.png"
 import IconAddCarrinho from "../img/addCart.png"
-import OutlinedInput from '@mui/material/OutlinedInput';
-import InputAdornment from '@mui/material/InputAdornment';
 const HeaderHomeECadastro = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;

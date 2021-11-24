@@ -14,14 +14,14 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    pagina: "cadastro"
+    pagina: ""
   }
   escolherPagina = () => {
     switch (this.state.pagina) {
       case "cadastro":
-        return <CadastroPage />
+        
       default:
-        console.log()
+        return <CadastroPage />
     }
   }
   render() {
@@ -29,7 +29,7 @@ export default class App extends React.Component {
     return (
       <ThemeProvider theme={theme}>
         <DivAppContainer>
-          {this.escolherPagina}
+          {this.escolherPagina()}
         </DivAppContainer>
       </ThemeProvider>
     )
