@@ -1,5 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import Logo from '../img/logo.png';
+import IconCarrinho from '../img/cart.png';
+import Lupa from "../img/search-3-32.png"
+import IconAddCarrinho from "../img/addCart.png"
+
+
 
 const HeaderHomeECadastro = styled.div`
     background-color: #7869BF;
@@ -7,18 +13,17 @@ const HeaderHomeECadastro = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: start;
     align-items: center;
     height: 66px;
     width: 100vw;
 
-    button{
+    span{
         background-color: #7869BF;
-        font-size: 25px;
+        font-size: 21px;
         color: #F5F5F5;
         border: none;
-        padding: 0 15px;
-    }
+    } 
 `
 
 const ListadeServicos = styled.div`
@@ -31,22 +36,28 @@ const ListadeServicos = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
+    padding: 0 50px;
     
-    button{
+    span{
         background-color: #7869BF;
-        font-size: 25px;
+        font-size: 21px;
         color: #F5F5F5;
         border: none;
-        padding: 0 15px;
     }
 
     input{
-        background-color: #9A8FCF;
+        background-color: #8C7FC9;
         border: none;
         border-radius: 10px;
         font-size: 17px;
         height: 40px;
         width: 400px;
+        color: white;
+
+        &:hover{
+            background-color: #9A8FCF;
+            cursor: pointer;
+        }    
     }
 
     input::placeholder{
@@ -66,12 +77,11 @@ const Carrinho = styled.div`
     height: 66px;
     width: 100vw;
     
-    button{
+    span{
         background-color: #7869BF;
-        font-size: 25px;
+        font-size: 21px;
         color: #F5F5F5;
         border: none;
-        padding: 0 15px;
     }
 `
 
@@ -85,12 +95,61 @@ const Detalhes = styled.div`
     height: 66px;
     width: 100vw;
     
-    button{
+    span{
         background-color: #7869BF;
-        font-size: 25px;
+        font-size: 21px;
         color: #F5F5F5;
         border: none;
-        padding: 0 15px;
+    }
+`
+
+const LogoButton = styled.div`
+    height: 75%;
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-left: 30px;
+
+    &:hover{
+        background-color: #7365B8;
+        cursor: pointer;
+    }
+    
+    img{
+        width: 40px;
+        color: #F5F5F5;
+    } 
+`
+
+const DivInput = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 25px;
+        height: 25px;
+    }
+`
+
+const IconeCarrinho = styled.div`
+    border-radius: 80px;
+    height: 75%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 30px;
+
+    img{
+        width: 25px;
+    }
+    
+    &:hover{
+        background-color: #7365B8;
+        cursor: pointer;
     }
 `
 
@@ -121,41 +180,76 @@ export default class Header extends React.Component {
             case "Home":
                 return (
                     <HeaderHomeECadastro>
-                        <button>LabeNinjas</button>
+                        <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
                     </HeaderHomeECadastro>
                 )
             case "Cadastro":
                 return(
                     <HeaderHomeECadastro>
-                        <button>LabeNinjas</button>
+                        <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
                     </HeaderHomeECadastro>
                 )
             case "Lista de Serviços":
                 return(
                     <ListadeServicos>
-                        <button>LabeNinjas</button>
-                        <input placeholder="Busca"></input>
-                        <button>Carrinho</button>
+                       <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
+                       <DivInput>
+                            <img alt="Icon de lupa" src={Lupa} />
+                            <input placeholder="Busca"></input>
+                        </DivInput>
+                        <IconeCarrinho>
+                            <span>
+                                <img alt="Icone Carrinho" src={IconCarrinho} />
+                            </span>
+                        </IconeCarrinho>
                     </ListadeServicos>
                 )
             case "Detalhes":
                 return(
                     <Detalhes>
-                        <button>LabeNinjas</button>
-                        <button>Carrinho</button>
+                        <LogoButton>
+                            <LogoButton>
+                                <img alt="logo" src={Logo}></img>
+                                <span>LabeNinjas</span>
+                            </LogoButton>
+                        </LogoButton>
+                        <IconeCarrinho>
+                            <span>
+                                <img alt="Icone Carrinho" src={IconCarrinho} />
+                            </span>
+                        </IconeCarrinho>
                     </Detalhes>
                 )
             case "Carrinho":
                 return(
                     <Carrinho>
-                        <button>LabeNinjas</button>
-                        <button>Adicionar Carrinho</button>
+                        <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <span>LabeNinjas</span>
+                       </LogoButton>
+                        <IconeCarrinho>
+                            <span>
+                                <img alt="Icone Carrinho" src={IconAddCarrinho} />
+                            </span>
+                        </IconeCarrinho>
                     </Carrinho>
                 )
             default:
                 return(
                     <div>
-                        <button>Labeninjas</button>
+                        <LogoButton>
+                           <img alt="logo" src={Logo}></img>
+                           <button>LabeNinjas</button>
+                       </LogoButton>
                     </div>
                 )
         }
