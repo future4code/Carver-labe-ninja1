@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 import Axios from 'axios'
-import Header from './components/Header'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './components/Theme';
+import CadastroPage from './components/NewJob'
 
 const DivAppContainer = styled.div`
   display: flex;
@@ -10,12 +12,28 @@ const DivAppContainer = styled.div`
 
 `
 
-function App() {
-	return (
+export default class App extends React.Component {
+  state = {
+    pagina: ""
+  }
+  escolherPagina = () => {
+    switch (this.state.pagina) {
+      case "cadastro":
+        
+      default:
+        return <CadastroPage />
+    }
+  }
+  render() {
+
+    return (
+      <ThemeProvider theme={theme}>
         <DivAppContainer>
-			<Header />
-		</DivAppContainer>
-	)
+          {this.escolherPagina()}
+        </DivAppContainer>
+      </ThemeProvider>
+    )
+  }
 }
 
-export default App
+
