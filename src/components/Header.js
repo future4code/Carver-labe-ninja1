@@ -6,6 +6,8 @@ import IconCarrinho from '../img/cart.png';
 import IconAddCarrinho from "../img/addCart.png"
 import InputBase from '@material-ui/core/InputBase'
 
+
+
 const HeaderHomeECadastro = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -18,14 +20,18 @@ const HeaderHomeECadastro = styled.div`
     width: 100vw;
     margin-top: -8px;
 
+
+
     span{
         background-color: #7869BF;
         font-size: 21px;
         color: #F5F5F5;
         border: none;
-    } 
-`
 
+    } 
+
+
+`
 const ListadeServicos = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -40,12 +46,14 @@ const ListadeServicos = styled.div`
     
     span{
         background-color: #7869BF;
+
+
+
         font-size: 21px;
         color: #F5F5F5;
         border: none;       
     }
 `
-
 const Carrinho = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -65,7 +73,6 @@ const Carrinho = styled.div`
         border: none;
     }
 `
-
 const Detalhes = styled.div`
     background-color: #7869BF;
     display: flex;
@@ -82,6 +89,7 @@ const Detalhes = styled.div`
         font-size: 21px;
         color: #F5F5F5;
         border: none;
+
     }
 `
 
@@ -174,9 +182,9 @@ const IconeCarrinho = styled.div`
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
+
     }
 `
-
 export default class Header extends React.Component {
 
 
@@ -192,7 +200,7 @@ export default class Header extends React.Component {
                     </HeaderHomeECadastro>
                 )
             case "Cadastro":
-                return(
+                return (
                     <HeaderHomeECadastro>
                         <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
@@ -201,7 +209,7 @@ export default class Header extends React.Component {
                     </HeaderHomeECadastro>
                 )
             case "Lista de Serviços":
-                return(
+                return (
                     <ListadeServicos>
                        <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
@@ -224,7 +232,7 @@ export default class Header extends React.Component {
                     </ListadeServicos>
                 )
             case "Detalhes":
-                return(
+                return (
                     <Detalhes>
                         <LogoButton onClick={this.props.irHome}>
                             <img alt="logo" src={Logo}></img>
@@ -238,7 +246,7 @@ export default class Header extends React.Component {
                     </Detalhes>
                 )
             case "Carrinho":
-                return(
+                return (
                     <Carrinho>
                         <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
@@ -252,7 +260,7 @@ export default class Header extends React.Component {
                     </Carrinho>
                 )
             default:
-                return(
+                return (
                     <div>
                         <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
@@ -262,12 +270,11 @@ export default class Header extends React.Component {
                 )
         }
     }
-
-  render() {
-    return (
-           <div>
-               {this.estadoComponenteAtual()}
-           </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                {this.estadoComponenteAtual()}
+            </div>
+        )
+    }
 }

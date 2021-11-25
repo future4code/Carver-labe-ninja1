@@ -1,4 +1,7 @@
 import { createTheme } from '@material-ui/core/styles';
+
+
+
 export const theme = createTheme({
   palette: {
     primary: {
@@ -8,8 +11,11 @@ export const theme = createTheme({
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
+
       light: '#0066FF',
       main: '#0044FF',
+
+ 
       // dark: will be calculated from palette.secondary.main,
       contrastText: '#37392E',
     },
