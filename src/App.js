@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
 import Home from './components/Home'
-
+import TelaDetalhes from './components/TelaDetalhes'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -21,11 +21,11 @@ const DivAppContainer = styled.div`
 `
 export default class App extends React.Component {
   state = {
-    componenteAtual: ""
+    componenteAtual: "Detalhes"
   }
-  componentDidMount() {
-    this.irParaHome()
-  }
+  // componentDidMount() {
+  //   this.irParaHome()
+  // }
   irParaHome = () => {
     this.setState({componenteAtual: "Home"})
   }
@@ -56,7 +56,7 @@ export default class App extends React.Component {
         return
         // <Carrinho />
       case "Detalhes":
-        return
+        return <TelaDetalhes />
         // <Detalhes />
       default:
         return
@@ -75,8 +75,8 @@ export default class App extends React.Component {
             irListaDeServicos={this.irParaListaDeServicos}
             
           />
-          
           {this.escolherComponente()}
+          
         </DivAppContainer>
       </ThemeProvider>
     )

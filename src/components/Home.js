@@ -11,15 +11,21 @@ const CardButton = styled.div`
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
+    
 ` 
+const CardLogo = styled.div `
+    width: 300px;
 
+`
 export default class Home extends React.Component {
     
 
     render () {
         return (
             <div>
+                
                 <img src={IconeHome}/>
+                
                 <CardButton>
                     <button onClick={this.props.irCadastro}>Criar Cadastro</button>
                     <button onClick={this.props.irListaDeServicos}>Lista de Serviços</button>
