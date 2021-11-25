@@ -1,6 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from './components/Header'
+import SCart from './components/SCart'
+import { createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './components/Theme';
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    margin: 0;
+    padding: 0;
+  }
+`
 
 import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
@@ -19,6 +30,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 const DivAppContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,11 +38,12 @@ const DivAppContainer = styled.div`
 export default class App extends React.Component {
   state = {
 
-    componenteAtual: ""
+export default class App extends React.Component {
+  state = {
+    componenteAtual: "Carrinho",
+    idParaDetalhe: ''
   }
-  componentDidMount() {
-    this.irParaHome()
-  }
+
   irParaHome = () => {
     this.setState({componenteAtual: "Home"})
   }
@@ -38,40 +51,46 @@ export default class App extends React.Component {
   irParaCarrinho = () => {
     this.setState({componenteAtual: "Carrinho"})
   }
+
   irParaListaDeServicos = () => {
     this.setState({componenteAtual: "Lista de Serviços"})
   }
+
   irParaCadastro = () => {
     this.setState({componenteAtual: "Cadastro"})
   }
-  irParaDetalhes = () => {
+
+  irParaDetalhes = (id) => {
     this.setState({componenteAtual: "Detalhes"})
+    this.setState({irParaDetalhe: id})
+    console.log(id)
   }
+
   escolherComponente = () => {
     switch(this.state.componenteAtual){
       case "Home":
-
-        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
-        
+        return 
+        // <Home />
       case "Cadastro":
-        return<CadastroPage />
-
+        return 
+        // <Cadastro />
       case "Lista de Serviços":
-        return
+        return 
         // <irListaDeServicos />
       case "Carrinho":
-        return
-        // <Carrinho />
+        return <SCart 
+          irParaDetalhes={this.irParaDetalhes} 
+        />
       case "Detalhes":
-        return
-        // <Detalhes />
+        return 
+        // <Detalhes id={this.state.irParaDetalhe}/>
       default:
-
-        return
+        return 
+        // <Home />
     }
   }
-  render () {
 
+  render () {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
@@ -81,15 +100,10 @@ export default class App extends React.Component {
             irHome={this.irParaHome}
             irCarrinho={this.irParaCarrinho}
             irListaDeServicos={this.irParaListaDeServicos}
-
-            
           />
-          
-
           {this.escolherComponente()}
         </DivAppContainer>
       </ThemeProvider>
     )
   }
 }
-
