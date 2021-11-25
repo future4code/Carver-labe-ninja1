@@ -6,6 +6,7 @@ import Home from './components/Home'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
+import CadastroPage from './components/NewJob'
 
 
 const GlobalStyle = createGlobalStyle`
@@ -54,8 +55,8 @@ export default class App extends React.Component {
       case "Home":
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
       case "Cadastro":
-        return 
-        // <Cadastro />
+        return <CadastroPage />
+        
       case "Lista de Serviços":
         return 
         // <irListaDeServicos />
