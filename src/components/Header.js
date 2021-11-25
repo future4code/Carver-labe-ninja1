@@ -18,7 +18,6 @@ const HeaderHomeECadastro = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    margin-top: -8px;
 
 
 
@@ -42,7 +41,6 @@ const ListadeServicos = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    margin-top: -8px;
     
     span{
         background-color: #7869BF;
@@ -64,7 +62,6 @@ const Carrinho = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    margin-top: -8px;
     
     span{
         background-color: #7869BF;
@@ -82,7 +79,6 @@ const Detalhes = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    margin-top: -8px;
     
     span{
         background-color: #7869BF;
@@ -101,7 +97,6 @@ const LogoButton = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 30px;
-
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
@@ -114,19 +109,6 @@ const LogoButton = styled.div`
 `
 
 const DivInput = styled.div`
-    /* border-radius: 10px;
-    background-color: #8C7FC9;
-    width: 400px;
-    border: none;
-    font-size: 17px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-    &:hover{
-        background-color: #9A8FCF;
-        cursor: pointer; */
-
     position: relative;
     left: 0;
     right: 0;
@@ -188,8 +170,10 @@ const IconeCarrinho = styled.div`
 export default class Header extends React.Component {
 
 
+
     estadoComponenteAtual = () => {
         switch(this.props.paginaAtual){
+
             case "Home":
                 return (
                     <HeaderHomeECadastro>

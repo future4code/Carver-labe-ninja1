@@ -23,8 +23,50 @@ const Button = styled.div `
     justify-content: space-between;
     border: 1px solid black;
 `
+
+
+
+const autorizacao = {
+    headers: {
+      Authorization: "9625d647-f235-4369-90c5-7e1f0a933d2d"
+    }
+  }
+
+
 export default class TelaDetalhes extends React.Component {
    
+    state = {
+    titulo: "",
+    descricao:"",
+    preco: "",
+    formadepg: [],
+    data: ""
+  
+    }
+
+
+    pegarJob = () => {
+        
+        axios.
+        get(
+        `https://labeninjas.herokuapp.com/jobs/${this.props.id}`,
+          autorizacao,
+        )
+        .then((res) =>{
+          console.log(this.props.id)
+          this.setState({
+                titulo: this.props.id.title,
+                descricao : this.props.id.description,
+                preco: this.props.id.price,
+                formadepg: this.props.id.paymentMethods,
+                data : this.props.id.dueDate
+          })
+        })
+        .catch((err) =>{
+          console.log(err.response.data.message)
+          alert("Não foi possível visualizar detalhes.")
+        })
+      }
    
    
    
@@ -34,7 +76,7 @@ export default class TelaDetalhes extends React.Component {
             <div>
                 <CardTitulo>
                     <h1>
-                    Título do Serviço
+                        {this.state.titulo}
                     </h1>
                 </CardTitulo>
 
