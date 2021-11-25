@@ -132,23 +132,9 @@ const IconeCarrinho = styled.div`
     }
 `
 export default class Header extends React.Component {
-    state = {
-        componenteAtual: "Lista de Serviços"
-    }
-    // onClickLabeninjas = () => {
-    //     this.setState({componenteAtual: "Home"})
-    // }
-    // onChangeInputBusca = (e) => {
-    //     this.setState({inputBusca: e.target.value})
-    // }
-    // onClickCarrinho = () => {
-    //     this.setState({componenteAtual: "Carrinho"})
-    // }
-    // onClickAddCarinho = () => {
-    //     this.setState({componenteAtual: "Lista de Serviços"})
-    // }
+
     estadoComponenteAtual = () => {
-        switch (this.state.componenteAtual) {
+        switch (this.props.paginaAtual) {
             case "Home":
                 return (
                     <HeaderHomeECadastro>
