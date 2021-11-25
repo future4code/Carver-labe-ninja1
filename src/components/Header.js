@@ -188,8 +188,10 @@ const IconeCarrinho = styled.div`
 export default class Header extends React.Component {
 
 
+
     estadoComponenteAtual = () => {
         switch(this.props.paginaAtual){
+
             case "Home":
                 return (
                     <HeaderHomeECadastro>
