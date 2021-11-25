@@ -18,11 +18,10 @@ const DivAppContainer = styled.div`
 `
 export default class App extends React.Component {
   state = {
-    componenteAtual: ""
+    componenteAtual: "Home"
   }
-  componentDidMount() {
-    this.irParaHome()
-  }
+  
+
   irParaHome = () => {
     this.setState({componenteAtual: "Home"})
   }
@@ -71,7 +70,7 @@ export default class App extends React.Component {
             irCarrinho={this.irParaCarrinho}
             irListaDeServicos={this.irParaListaDeServicos}
           />
-          {this.escolherComponente}
+          {this.escolherComponente()}
         </DivAppContainer>
       </ThemeProvider>
     )
