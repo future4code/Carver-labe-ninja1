@@ -110,6 +110,12 @@ export default class SCart extends Component {
         }]
     }
 
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.sCart !== prevState.sCart){
+            this.totalCarrinho()
+        }
+    }
+
     addToCart = (id) => {
 
     }
@@ -144,7 +150,9 @@ export default class SCart extends Component {
         this.setState({carrinho: []})
     }
 
-    totalCarrinho = (this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0))
+    totalCarrinho = () =>{
+        return this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0)
+    }
 
     footerCarrinho = () => {
         return (
@@ -153,7 +161,7 @@ export default class SCart extends Component {
                     <Button variant="contained" color='primary' onClick={this.finalizarCompra}>Finalizar Compra</Button>
                 </ContainerTituloServico>
                 <ContainerPrecoTotal>
-                    Valor Total: {this.totalCarrinho.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    Valor Total: {this.totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </ContainerPrecoTotal>
                 <ContainerRemoverDoCarrinho>
                     <IconButton aria-label="delete" onClick={this.clearCart}>
