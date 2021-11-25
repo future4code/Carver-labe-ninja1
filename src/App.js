@@ -2,25 +2,10 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from './components/Header'
 import SCart from './components/SCart'
-import { createGlobalStyle } from 'styled-components'
-import { ThemeProvider } from '@mui/material/styles'
-import { theme } from './components/Theme';
-
-const GlobalStyle = createGlobalStyle`
-  body{
-    margin: 0;
-    padding: 0;
-  }
-`
-
-import CadastroPage from './components/NewJob'
-import { createGlobalStyle } from 'styled-components'
-import { ThemeProvider } from '@mui/material/styles'
-import { theme } from './components/Theme';
-
-
 import Home from './components/Home'
-
+import { createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './components/Theme';
 
 
 const GlobalStyle = createGlobalStyle`
@@ -35,8 +20,6 @@ const DivAppContainer = styled.div`
   flex-direction: column;
   align-items: center;
 `
-export default class App extends React.Component {
-  state = {
 
 export default class App extends React.Component {
   state = {
@@ -69,8 +52,7 @@ export default class App extends React.Component {
   escolherComponente = () => {
     switch(this.state.componenteAtual){
       case "Home":
-        return 
-        // <Home />
+        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
       case "Cadastro":
         return 
         // <Cadastro />

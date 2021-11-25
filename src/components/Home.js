@@ -1,16 +1,26 @@
-import react from 'react'
-import axios from 'axios'
-import styled from 'styled-components'
 import React from 'react'
+import styled from 'styled-components'
 import IconeHome from "../img/labeninjas.png"
+import Button from '@mui/material/Button';
 
+
+const DivContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`
+const Img = styled.img`
+    width: 550px;
+    padding: 15px;
+`
 
 const CardButton = styled.div`
-    border : 1px solid black ;
     display: flex;
+    width: 600px;
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
+    margin-top: -20px;
 ` 
 
 export default class Home extends React.Component {
@@ -18,14 +28,26 @@ export default class Home extends React.Component {
 
     render () {
         return (
-            <div>
-                <img src={IconeHome}/>
+            <DivContainer>
+                <Img src={IconeHome}/>
                 <CardButton>
-                    <button onClick={this.props.irCadastro}>Criar Cadastro</button>
-                    <button onClick={this.props.irListaDeServicos}>Lista de Serviços</button>
+                    <Button
+                        onClick={this.props.irCadastro}
+                        variant="contained"
+                        disableElevation
+                    >
+                        Criar Cadastro
+                    </Button>
+                    <Button
+                        onClick={this.props.irListaDeServicos}
+                        variant="contained"
+                        disableElevation
+                    >
+                        Lista de Serviços
+                    </Button>
                    
                 </CardButton>
-            </div>
+            </DivContainer>
         )
     }
 }

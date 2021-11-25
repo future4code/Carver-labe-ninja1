@@ -18,6 +18,9 @@ button{
 display: flex;
 flex-direction: column;
 
+h1{
+  color: #968BCE;
+}
 `
 const Body = styled.div`
 display: flex;
@@ -211,7 +214,6 @@ export default class CadastroPage extends React.Component {
 
     return (
       <Body>
-
         <CadastroContainer>
 
           <h1>Cadastre o seu serviço</h1>
