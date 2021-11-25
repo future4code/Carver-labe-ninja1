@@ -97,7 +97,6 @@ const LogoButton = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 30px;
-
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
