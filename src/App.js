@@ -13,13 +13,30 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+import CadastroPage from './components/NewJob'
+import { createGlobalStyle } from 'styled-components'
+import { ThemeProvider } from '@mui/material/styles'
+import { theme } from './components/Theme';
+
+
+import Home from './components/Home'
+
+
+
+const GlobalStyle = createGlobalStyle`
+  body{
+    margin: 0;
+    padding: 0;
+  }
+`
 const DivAppContainer = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 `
+export default class App extends React.Component {
+  state = {
 
 export default class App extends React.Component {
   state = {
