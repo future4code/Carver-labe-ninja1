@@ -7,6 +7,8 @@ import IconAddCarrinho from "../img/addCart.png"
 
 
 
+
+
 const HeaderHomeECadastro = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -18,14 +20,18 @@ const HeaderHomeECadastro = styled.div`
     height: 66px;
     width: 100vw;
 
+
+
     span{
         background-color: #7869BF;
         font-size: 21px;
         color: #F5F5F5;
         border: none;
-    } 
-`
 
+    } 
+
+
+`
 const ListadeServicos = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -37,14 +43,17 @@ const ListadeServicos = styled.div`
     height: 66px;
     width: 100vw;
     padding: 0 50px;
+
     
     span{
         background-color: #7869BF;
+
+
+
         font-size: 21px;
         color: #F5F5F5;
         border: none;
     }
-
     input{
         background-color: #8C7FC9;
         border: none;
@@ -54,18 +63,18 @@ const ListadeServicos = styled.div`
         width: 400px;
         color: white;
 
+
+
         &:hover{
             background-color: #9A8FCF;
             cursor: pointer;
         }    
     }
-
     input::placeholder{
         color: #C0B9E1;
         padding-left: 40px;
     }
 `
-
 const Carrinho = styled.div`
     background-color: #7869BF;
     color: #F5F5F5;
@@ -76,7 +85,7 @@ const Carrinho = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    
+
     span{
         background-color: #7869BF;
         font-size: 21px;
@@ -84,7 +93,6 @@ const Carrinho = styled.div`
         border: none;
     }
 `
-
 const Detalhes = styled.div`
     background-color: #7869BF;
     display: flex;
@@ -94,12 +102,14 @@ const Detalhes = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    
+
+
     span{
         background-color: #7869BF;
         font-size: 21px;
         color: #F5F5F5;
         border: none;
+
     }
 `
 
@@ -150,33 +160,27 @@ const IconeCarrinho = styled.div`
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
+
     }
 `
-
 export default class Header extends React.Component {
-
     state = {
         componenteAtual: "Lista de Serviços"
     }
-
     // onClickLabeninjas = () => {
     //     this.setState({componenteAtual: "Home"})
     // }
-
     // onChangeInputBusca = (e) => {
     //     this.setState({inputBusca: e.target.value})
     // }
-
     // onClickCarrinho = () => {
     //     this.setState({componenteAtual: "Carrinho"})
     // }
-
     // onClickAddCarinho = () => {
     //     this.setState({componenteAtual: "Lista de Serviços"})
     // }
-
     estadoComponenteAtual = () => {
-        switch(this.state.componenteAtual){
+        switch (this.state.componenteAtual) {
             case "Home":
                 return (
                     <HeaderHomeECadastro>
@@ -187,7 +191,7 @@ export default class Header extends React.Component {
                     </HeaderHomeECadastro>
                 )
             case "Cadastro":
-                return(
+                return (
                     <HeaderHomeECadastro>
                         <LogoButton>
                            <img alt="logo" src={Logo}></img>
@@ -196,8 +200,9 @@ export default class Header extends React.Component {
                     </HeaderHomeECadastro>
                 )
             case "Lista de Serviços":
-                return(
+                return (
                     <ListadeServicos>
+
                        <LogoButton>
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
@@ -214,7 +219,7 @@ export default class Header extends React.Component {
                     </ListadeServicos>
                 )
             case "Detalhes":
-                return(
+                return (
                     <Detalhes>
                         <LogoButton>
                             <LogoButton>
@@ -230,9 +235,10 @@ export default class Header extends React.Component {
                     </Detalhes>
                 )
             case "Carrinho":
-                return(
+                return (
                     <Carrinho>
                         <LogoButton>
+
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
                        </LogoButton>
@@ -244,7 +250,7 @@ export default class Header extends React.Component {
                     </Carrinho>
                 )
             default:
-                return(
+                return (
                     <div>
                         <LogoButton>
                            <img alt="logo" src={Logo}></img>
@@ -254,12 +260,11 @@ export default class Header extends React.Component {
                 )
         }
     }
-
-  render() {
-    return (
-           <div>
-               {this.estadoComponenteAtual()}
-           </div>
-    )
-  }
+    render() {
+        return (
+            <div>
+                {this.estadoComponenteAtual()}
+            </div>
+        )
+    }
 }
