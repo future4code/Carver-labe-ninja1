@@ -5,6 +5,9 @@ import Header from './components/Header'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
+import Home from './components/Home'
+
+
 const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
@@ -40,8 +43,8 @@ export default class App extends React.Component {
   escolherComponente = () => {
     switch(this.state.componenteAtual){
       case "Home":
-        return
-        // <Home />
+        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
+        
       case "Cadastro":
         return
         // <Cadastro />
@@ -69,6 +72,7 @@ export default class App extends React.Component {
             irHome={this.irParaHome}
             irCarrinho={this.irParaCarrinho}
             irListaDeServicos={this.irParaListaDeServicos}
+            
           />
           {this.escolherComponente()}
         </DivAppContainer>

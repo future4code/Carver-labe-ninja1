@@ -22,8 +22,6 @@ export default class CadastroPage extends React.Component {
   render() {
     return (
       <Body>
-        <Header />
-
         <CadastroContainer>
           <h1>Cadastre o seu serviço</h1>
           <TextField
