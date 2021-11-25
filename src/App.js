@@ -54,8 +54,7 @@ export default class App extends React.Component {
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
         
       case "Cadastro":
-        return
-        // <Cadastro />
+        return<CadastroPage />
 
       case "Lista de Serviços":
         return
@@ -69,7 +68,7 @@ export default class App extends React.Component {
       default:
 
         return
-  
+    }
   }
   render () {
 
