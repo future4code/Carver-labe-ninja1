@@ -1,4 +1,3 @@
-
 import React from 'react'
 import styled from 'styled-components'
 import Header from './components/Header'
@@ -22,7 +21,7 @@ const DivAppContainer = styled.div`
 `
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Home"
+    componenteAtual: ""
   }
   componentDidMount() {
     this.irParaHome()
@@ -69,7 +68,6 @@ export default class App extends React.Component {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <DivAppContainer>
-          
           <Header
             paginaAtual={this.state.componenteAtual}
             irHome={this.irParaHome}
@@ -77,15 +75,10 @@ export default class App extends React.Component {
             irListaDeServicos={this.irParaListaDeServicos}
             
           />
-          {/* <Home/> */}
+          
           {this.escolherComponente()}
         </DivAppContainer>
       </ThemeProvider>
     )
   }
 }
-
-
-
-
-
