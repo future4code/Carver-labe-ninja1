@@ -22,10 +22,6 @@ const CardButton = styled.div`
     flex-direction: row;
     
 ` 
-const CardLogo = styled.div `
-    width: 300px;
-
-`
 export default class Home extends React.Component {
     
 

@@ -89,7 +89,6 @@ export default class SCart extends Component {
     totalCarrinho = () => {
         return this.state.sCart.length > 0 && this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0)
     }
-        
 
     footerCarrinho = () => {
         return (
@@ -98,7 +97,7 @@ export default class SCart extends Component {
                     <Button variant="contained" color='primary' onClick={this.props.finalizarCompra}>Finalizar Compra</Button>
                 </ContainerTituloServico>
                 <ContainerPrecoTotal>
-                    Total: {this.totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    Valor Total: {this.totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </ContainerPrecoTotal>
                 <ContainerRemoverDoCarrinho>
                     <IconButton aria-label="delete" onClick={this.props.clearCart}>
