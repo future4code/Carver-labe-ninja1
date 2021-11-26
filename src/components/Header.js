@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../img/logo.png';
 import IconCarrinho from '../img/cart.png';
-// import Lupa from "../img/search-3-32.png"
+
 import IconAddCarrinho from "../img/addCart.png"
-import InputBase from '@material-ui/core/InputBase'
+// import InputBase from '@material-ui/core/InputBase'
 
 
 
@@ -169,7 +169,9 @@ const IconeCarrinho = styled.div`
 `
 export default class Header extends React.Component {
 
-
+    pegarValorBusca = (e) => {
+        this.setState({buscaServico: e.target.value})
+      }
 
     estadoComponenteAtual = () => {
         switch(this.props.paginaAtual){
@@ -194,26 +196,26 @@ export default class Header extends React.Component {
                 )
             case "Lista de Serviços":
                 return (
-                    <ListadeServicos>
-                       <LogoButton onClick={this.props.irHome}>
-                           <img alt="logo" src={Logo}></img>
-                           <span>LabeNinjas</span>
-                       </LogoButton>
-                       <DivInput>
-                            {/* <img alt="Icon de lupa" src={Lupa} />
-                            <input type="search" placeholder="Busca"></input> */}
-                            
-                            <InputBase
-                                inputProps={{ style: { color: 'white', width: '350px' } }}
-                                placeholder="Busca"
-                            />
-                        </DivInput>
-                        <IconeCarrinho onClick={this.props.irCarrinho}>
-                            <span>
-                                <img alt="Icone Carrinho" src={IconCarrinho} />
-                            </span>
-                        </IconeCarrinho>
-                    </ListadeServicos>
+                    ""
+                    // <ListadeServicos>
+                    //    <LogoButton onClick={this.props.irHome}>
+                    //        <img alt="logo" src={Logo}></img>
+                    //        <span>LabeNinjas</span>
+                    //    </LogoButton>
+                    //    <DivInput>  
+                    //         <InputBase
+                    //             onChange={this.pegarValorBusca}
+                    //             value={this.state.buscaServico}
+                    //             inputProps={{ style: { color: 'white', width: '350px' } }}
+                    //             placeholder="Busca"
+                    //         />
+                    //     </DivInput>
+                    //     <IconeCarrinho onClick={this.props.irCarrinho}>
+                    //         <span>
+                    //             <img alt="Icone Carrinho" src={IconCarrinho} />
+                    //         </span>
+                    //     </IconeCarrinho>
+                    // </ListadeServicos>
                 )
             case "Detalhes":
                 return (
