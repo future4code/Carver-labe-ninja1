@@ -25,13 +25,14 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Home",
+    componenteAtual: "Lista de Serviços",
     idParaDetalhe: '',
-    itensCarrinho: []
+    itensCarrinho: [],
   }
   // componentDidMount() {
   //   this.irParaHome()
   // }
+
   irParaHome = () => {
     this.setState({ componenteAtual: "Home" })
   }
@@ -83,6 +84,8 @@ export default class App extends React.Component {
           return <Servicos
             addToCart={this.addToCart}
             irParaDetalhes={this.irParaDetalhes}
+            irCarrinho={this.irParaCarrinho}
+            irHome={this.irParaHome}
           />
         case "Carrinho":
           return <SCart
@@ -100,7 +103,7 @@ export default class App extends React.Component {
     }
 
     render() {
-
+      console.log(this.state.buscaServico)
       return (
         <ThemeProvider theme={theme}>
           <GlobalStyle />
