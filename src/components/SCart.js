@@ -61,30 +61,11 @@ const EmptyCartMessage = styled.div`
 export default class SCart extends Component {
 
     state = {
-        // começar o carrinho com a props recebida da lista de serviços?
-        sCart: this.props.itensCarrinho
+        sCart: []
     }
 
-    // componentDidMount(){
-    //     const novoCarrinho = [... this.state.sCart, this.props.itensCarrinho]
-    //     this.setState({sCart: novoCarrinho})
-    // }
-
-    // removeFromCart = (id) => {
-    //     const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
-    //     if (confirmacao) {
-    //         const newCart = this.state.sCart.filter(item => {
-    //             if (id !== item.id) {
-    //                 return item
-    //             }
-    //         })
-    //         this.setState({ sCart: newCart })
-    //     }
-    // }
-
-    clearCart = () => {
-        const confirmacao = window.confirm('Deseja realmente limpar o carrinho?')
-        confirmacao && this.setState({ sCart: [] })
+    componentDidMount(){
+        this.setState({sCart: this.props.itensCarrinho})
     }
 
     emptyCartMessage = () => {
@@ -95,19 +76,18 @@ export default class SCart extends Component {
         )
     }
 
-    finalizarCompra = () => {
-        alert('Compra efetuada com sucesso!')
-        this.setState({sCart: []})
-    }
-
     componentDidUpdate(prevProps, prevState){
         if (this.state.sCart !== prevState.sCart){
             this.totalCarrinho()
         }
+
+        if (this.props.itensCarrinho !== prevProps.itensCarrinho){
+            this.componentDidMount()
+        }
     }
 
     totalCarrinho = () => {
-        return this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0)
+        return this.state.sCart.length > 0 && this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0)
     }
         
 
@@ -115,13 +95,13 @@ export default class SCart extends Component {
         return (
             <ContainerFooter>
                 <ContainerTituloServico>
-                    <Button variant="contained" color='primary' onClick={this.finalizarCompra}>Finalizar Compra</Button>
+                    <Button variant="contained" color='primary' onClick={this.props.finalizarCompra}>Finalizar Compra</Button>
                 </ContainerTituloServico>
                 <ContainerPrecoTotal>
                     Total: {this.totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </ContainerPrecoTotal>
                 <ContainerRemoverDoCarrinho>
-                    <IconButton aria-label="delete" onClick={this.clearCart}>
+                    <IconButton aria-label="delete" onClick={this.props.clearCart}>
                         <DeleteOutlinedIcon color="remove" />
                     </IconButton>
                 </ContainerRemoverDoCarrinho>
@@ -130,6 +110,8 @@ export default class SCart extends Component {
     }
 
     render() {
+        console.log(this.state.sCart)
+        console.log(this.props.itensCarrinho)
 
         const itensCarrinho = this.state.sCart.map(item => {
             return (
@@ -141,7 +123,7 @@ export default class SCart extends Component {
                         {item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                     </ContainerPrecoServico>
                     <ContainerRemoverDoCarrinho>
-                        <IconButton aria-label="delete" onClick={() => this.removeFromCart(item.id)}>
+                        <IconButton aria-label="delete" onClick={() => this.props.removeFromCart(item.id)}>
                             <DeleteOutlinedIcon color="remove" />
                         </IconButton>
                     </ContainerRemoverDoCarrinho>
