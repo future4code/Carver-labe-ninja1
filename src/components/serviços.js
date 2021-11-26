@@ -242,7 +242,7 @@ export default class Servicos extends React.Component {
                             }
                         })
                         .map((servico) => {
-                            return <CardServico {...servico} irParaDetalhes={this.props.irParaDetalhes} />
+                            return <CardServico servico={servico} irParaDetalhes={this.props.irParaDetalhes} addToCart={this.props.addToCart} />
                         }
                         )}
                 </ContainerServico>
