@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import IconeHome from "../img/labeninjas.png"
+import IconeHome from '../img/labeninjas.png'
 import Button from '@mui/material/Button';
 
 

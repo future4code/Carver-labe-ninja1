@@ -24,8 +24,9 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Detalhes",
-    irParaDetalhe : ""
+    componenteAtual: "Carrinho",
+    idParaDetalhe: '',
+    itensCarrinho: []
   }
   // componentDidMount() {
   //   this.irParaHome()
@@ -49,7 +50,11 @@ export default class App extends React.Component {
   irParaDetalhes = (id) => {
     this.setState({componenteAtual: "Detalhes"})
     this.setState({irParaDetalhe: id})
-    console.log(id)
+  }
+
+  addToCart = (item) => {
+    const novoCarrinho = [... this.state.itensCarrinho, item]
+    this.setState({itensCarrinho: novoCarrinho})
   }
 
   escolherComponente = () => {
@@ -57,20 +62,20 @@ export default class App extends React.Component {
       case "Home":
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
       case "Cadastro":
-        return <CadastroPage/>
+        return <CadastroPage />
       case "Lista de Serviços":
         return 
-        // <irListaDeServicos />
+        // <ListaDeServicos addToCart={this.addToCart}/>
       case "Carrinho":
         return <SCart 
-          irParaDetalhes ={this.irParaDetalhe} 
+          itensCarrinho={this.state.itensCarrinho}
+          irParaDetalhes={this.irParaDetalhes} 
         />
       case "Detalhes":
         return <TelaDetalhes id={this.state.irParaDetalhe} />
        
       default:
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
-        
     }
   }
 
