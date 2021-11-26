@@ -5,17 +5,24 @@ import React from 'react'
 import carrinho from '../img/addCart.png'
 import { style } from '@material-ui/system'
 
-const CardTitulo = styled.div `
+const ContainerDetalhes = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 100vw;
+`
+const CardTitulo = styled.div`
     border: 1px solid red;
     display: flex;
     justify-content: center;
-
 `
-
-const ListaPg = styled.div `
-    
+const ListaPg = styled.div`
+    display: flex;
+    flex-direction: column;
 `
-const Button = styled.div `
+const Button = styled.div`
     width: 300px;
     height: 60px;
     display: flex;
@@ -23,84 +30,64 @@ const Button = styled.div `
     justify-content: space-between;
     border: 1px solid black;
 `
-
-
-
 const autorizacao = {
     headers: {
-      Authorization: "9625d647-f235-4369-90c5-7e1f0a933d2d"
+        Authorization: "9625d647-f235-4369-90c5-7e1f0a933d2d"
     }
-  }
-
-
+}
 export default class TelaDetalhes extends React.Component {
-   
     state = {
-    titulo: "",
-    descricao:"",
-    preco: "",
-    formadepg: [],
-    data: ""
-  
+        servico: {},
+        metodosPagto: [],
+        data: '' 
     }
 
+    componentDidMount() {
+        this.pegarJob()
+    }
 
     pegarJob = () => {
-        
-        axios.
-        get(
-        `https://labeninjas.herokuapp.com/jobs/${this.props.id}`,
-          autorizacao,
+        axios.get(
+            `https://labeninjas.herokuapp.com/jobs/${this.props.id}`,
+            autorizacao,
         )
-        .then((res) =>{
-          console.log(this.props.id)
-          this.setState({
-                titulo: this.props.id.title,
-                descricao : this.props.id.description,
-                preco: this.props.id.price,
-                formadepg: this.props.id.paymentMethods,
-                data : this.props.id.dueDate
-          })
-        })
-        .catch((err) =>{
-          console.log(err.response.data.message)
-          alert("Não foi possível visualizar detalhes.")
-        })
-      }
-   
-   
-   
-   
-    render () {
+            .then((res) => {
+                this.setState({
+                    servico: res.data,
+                    metodosPagto: res.data.paymentMethods,
+                    data: res.data.dueDate.replace('T00:00:00.000Z', "")
+                })
+            })
+            .catch((err) => {
+                console.log(err.response)
+                alert("Não foi possível visualizar detalhes.")
+            })
+    }
+
+    render() {
         return (
-            <div>
+            <ContainerDetalhes>
                 <CardTitulo>
                     <h1>
-                        {this.state.titulo}
+                        {this.state.servico.title}
                     </h1>
                 </CardTitulo>
-
                 <ListaPg>
-                    <p>Aceita : </p>
+                    <p>Aceita: {this.state.metodosPagto.map((item) => {
+                        return <span>{item} </span>
+                    })} </p>
                 </ListaPg>
-
                 <div>
-                    <h2>Até 16/10/2021 por R$ 2000,00</h2>
+                    <h4>Até {this.state.data} por R$  {this.state.servico.price}</h4>
                 </div>
-
                 <div>
-                    <h3>Implementador de páginas web</h3>
+                    <h4>{this.state.servico.description}</h4>
                 </div>
-
                 <Button>
-                    <button> <img width = "20px" src = {carrinho}/>ADICIONAR AO CARRINHO</button>
-                    <button> VOLTAR PARA LISTA</button>
+                    <button onClick={() => this.props.addToCart(this.state.servico)} >ADICIONAR AO CARRINHO</button>
+                    <button onClick={this.props.irListaDeServicos}> VOLTAR PARA LISTA</button>
                 </Button>
-
-                
-            </div>
+            </ContainerDetalhes>
         )
     }
-    
-
 }

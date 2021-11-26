@@ -33,7 +33,7 @@ export default class Home extends React.Component {
         return (
             <DivContainer>
                 
-                <img src={IconeHome}/>
+                <Img src={IconeHome}/>
                 
                 <CardButton>
                     <Button

@@ -8,19 +8,11 @@ const ContainerServico = styled.div`
     grid-template-columns:1fr 1fr 1fr 1fr ;
     gap: 10px;
     padding-top: 30px;
-    
-    
-    
 `
 
 const ContainerInputs = styled.div`
     display: flex;
     background-color: gray;
-
-
-
-
-
 `
 
 
@@ -36,92 +28,78 @@ export default class Servicos extends React.Component {
     state = {
         listaServico: [],
         ordenacao: "preco",
-        creceOUdecre: "1",
-        
+        cresceOUdecre: "1",
     }
 
 
     componentDidMount() {
         this.novosServicos()
-
     }
 
     novosServicos = () => {
         axios.get(baseURL + "/jobs", autorizacao)
-        .then((res) => {
-            this.setState({ listaServico: res.data.jobs })
-            console.log(res)
-        })
-        .catch((err) => {
-            console.log(err.response.data.message)
-
-        })
-
+            .then((res) => {
+                this.setState({ listaServico: res.data.jobs })
+                console.log(res)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
     }
 
 
     mudancaOrdenacao = (evento) => {
-        this.setState({ordenacao: evento.target.value})
-
-
-
+        this.setState({ ordenacao: evento.target.value })
     }
 
     mudancaCreceOUdecre = (evento) => {
-        this.setState({creceOUdecre: evento.target.value})
-
-
-
+        this.setState({ cresceOUdecre: evento.target.value })
     }
 
 
     filtros = () => {
         return (
             <ContainerInputs>
-                <select value = {this.state.ordenacao} onChange = {this.mudancaOrdenacao}>
-                    <option value = "preco">Preço </option>
-                    <option value = "titulo">Titulo </option>
-                    <option value = "prazo">Prazo </option>
+                <select value={this.state.ordenacao} onChange={this.mudancaOrdenacao}>
+                    <option value="preco">Preço </option>
+                    <option value="titulo">Titulo </option>
+                    <option value="prazo">Prazo </option>
                 </select>
-                <select value = {this.state.creceOUdecre} onChange = {this.mudancaCreceOUdecre}>
-                    <option value = "1" >Crecente</option>
-                    <option value = "-1" >Decrecente</option>
+                <select value={this.state.cresceOUdecre} onChange={this.mudancaCreceOUdecre}>
+                    <option value="1" >Crescente</option>
+                    <option value="-1" >Decrescente</option>
                 </select>
                 <input placeholder={"Valor Minimo"} />
                 <input placeholder={"Valor Maximo"} />
-
             </ContainerInputs>
-
-
         )
-
-
     }
+
     render() {
 
-
         return (
+
             <div>
                 {this.filtros()}
                 <ContainerServico>
                     {this.state.listaServico
-                    .sort((a,b) => {
-                        switch(this.state.ordenacao){
-                            case "titulo":
-                                return(a.title.localeCompare(b.title))*Number(this.state.creceOUdecre)
-                            case "prazo":
-                                return(new Date(b.dueDate) - new Date(a.dueDate))*Number(this.state.creceOUdecre)
-
-                            default: 
-                                return(a.price - b.price)*Number(this.state.creceOUdecre)
-
+                        // .filter() // campo de busca
+                        // .filter() // valor mínimo
+                        // .filter() // valor máximo
+                        .sort((a, b) => {
+                            switch (this.state.ordenacao) {
+                                case "titulo":
+                                    return (a.title.localeCompare(b.title)) * Number(this.state.cresceOUdecre)
+                                case "prazo":
+                                    return (new Date(a.dueDate) - new Date(b.dueDate)) * Number(this.state.cresceOUdecre)
+                                default:
+                                    return (a.price - b.price) * Number(this.state.cresceOUdecre)
+                            }
+                        })
+                        .map((servico) => {
+                            return <CardServico {...servico} irParaDetalhes={this.props.irParaDetalhes} />
                         }
-
-                    })
-                    .map((servico) => {
-                        return <CardServico {...servico} />
-                    }
-                    )}
+                        )}
                 </ContainerServico>
             </div>
         )
