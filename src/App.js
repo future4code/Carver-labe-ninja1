@@ -7,6 +7,7 @@ import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
+import Servicos from './components/serviços';
 import TelaDetalhes from './components/TelaDetalhes'
 
 const GlobalStyle = createGlobalStyle`
@@ -24,7 +25,7 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Carrinho",
+    componenteAtual: "Home",
     idParaDetalhe: '',
     itensCarrinho: []
   }
@@ -32,68 +33,88 @@ export default class App extends React.Component {
   //   this.irParaHome()
   // }
   irParaHome = () => {
-    this.setState({componenteAtual: "Home"})
+    this.setState({ componenteAtual: "Home" })
   }
 
   irParaCarrinho = () => {
-    this.setState({componenteAtual: "Carrinho"})
+    this.setState({ componenteAtual: "Carrinho" })
   }
 
   irParaListaDeServicos = () => {
-    this.setState({componenteAtual: "Lista de Serviços"})
+    this.setState({ componenteAtual: "Lista de Serviços" })
   }
 
   irParaCadastro = () => {
-    this.setState({componenteAtual: "Cadastro"})
+    this.setState({ componenteAtual: "Cadastro" })
   }
 
   irParaDetalhes = (id) => {
-    this.setState({componenteAtual: "Detalhes"})
-    this.setState({idParaDetalhe: id})
+    this.setState({ componenteAtual: "Detalhes" })
+    this.setState({ idParaDetalhe: id })
   }
 
   addToCart = (item) => {
     const novoCarrinho = [... this.state.itensCarrinho, item]
-    this.setState({itensCarrinho: novoCarrinho})
+    this.setState({ itensCarrinho: novoCarrinho })
   }
 
-  escolherComponente = () => {
-    switch(this.state.componenteAtual){
-      case "Home":
-        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
-      case "Cadastro":
-        return <CadastroPage />
-      case "Lista de Serviços":
-        return 
-        // <ListaDeServicos addToCart={this.addToCart}/>
-      case "Carrinho":
-        return <SCart 
-          itensCarrinho={this.state.itensCarrinho}
-          irParaDetalhes={this.irParaDetalhes} 
-
-        />
-      case "Detalhes":
-        return  <TelaDetalhes id={this.state.idParaDetalhe} irListaDeServicos={this.irParaListaDeServicos}/>
-      default:
-        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
+  removeFromCart = (id) => {
+    const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
+    if (confirmacao) {
+      const novoCarrinho = this.state.itensCarrinho.filter(item => {
+        if (id !== item.id) {
+          return item
+        }
+      })
+      this.setState({ itensCarrinho: novoCarrinho })
     }
   }
 
-  render () {
-    return (
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        <DivAppContainer>
-          <Header
-            paginaAtual={this.state.componenteAtual}
-            irHome={this.irParaHome}
-            irCarrinho={this.irParaCarrinho}
+    escolherComponente = () => {
+      switch (this.state.componenteAtual) {
+        case "Home":
+          return <Home
+            irCadastro={this.irParaCadastro}
             irListaDeServicos={this.irParaListaDeServicos}
           />
-          {this.escolherComponente()}
-          
-        </DivAppContainer>
-      </ThemeProvider>
-    )
+        case "Cadastro":
+          return <CadastroPage />
+        case "Lista de Serviços":
+          return <Servicos
+            addToCart={this.addToCart}
+            irParaDetalhes={this.irParaDetalhes}
+          />
+        case "Carrinho":
+          return <SCart
+            itensCarrinho={this.state.itensCarrinho}
+            irParaDetalhes={this.irParaDetalhes}
+          />
+        case "Detalhes":
+          return <TelaDetalhes
+            id={this.state.idParaDetalhe}
+            irListaDeServicos={this.irParaListaDeServicos}
+            addToCart={this.addToCart} />
+        default:
+          return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos} />
+      }
+    }
+
+    render() {
+
+      return (
+        <ThemeProvider theme={theme}>
+          <GlobalStyle />
+          <DivAppContainer>
+            <Header
+              paginaAtual={this.state.componenteAtual}
+              irHome={this.irParaHome}
+              irCarrinho={this.irParaCarrinho}
+              irListaDeServicos={this.irParaListaDeServicos}
+            />
+            {this.escolherComponente()}
+
+          </DivAppContainer>
+        </ThemeProvider>
+      )
+    }
   }
-}
