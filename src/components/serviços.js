@@ -20,9 +20,6 @@ const ListadeServicos = styled.div`
     
     span{
         background-color: #7869BF;
-
-
-
         font-size: 21px;
         color: #F5F5F5;
         border: none;       
@@ -140,6 +137,9 @@ export default class Servicos extends React.Component {
         valorMaximo: ""
     }
 
+    // itensCarrinho. teve mudança. 
+    // atualizar this.state.listaServico. se id = id, taken = true
+
     pegarValorBusca = (e) => {
         this.setState({buscaServico: e.target.value})
     }
@@ -156,6 +156,17 @@ export default class Servicos extends React.Component {
         this.novosServicos()
     }
 
+    // componentDidUpdate(prevProps){
+    //     if (this.props.itensCarrinho !== prevProps.itensCarrinho){
+    //         this.state.listaServico.map(item => {
+
+    //         })
+    //         if (this.props.itensCarrinho.id === this.state.listaServico.id) {
+    //             novoEstado
+    //         }
+    //     }
+    // }
+
     novosServicos = () => {
         axios.get(baseURL + "/jobs", autorizacao)
             .then((res) => {
@@ -167,7 +178,6 @@ export default class Servicos extends React.Component {
             })
     }
 
-
     mudancaOrdenacao = (evento) => {
         this.setState({ ordenacao: evento.target.value })
     }
@@ -175,6 +185,7 @@ export default class Servicos extends React.Component {
     mudancaCreceOUdecre = (evento) => {
         this.setState({ cresceOUdecre: evento.target.value })
     }
+
 
 
     filtros = () => {

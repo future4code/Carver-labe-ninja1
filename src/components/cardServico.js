@@ -2,6 +2,7 @@ import { SupervisorAccountSharp } from "@mui/icons-material";
 import React from "react";
 // import Carrinho from "src\img\cart.png"
 import styled from "styled-components"
+import Button from '@mui/material/Button';
 
 
 const ContainerCardServico = styled.div`
@@ -22,10 +23,13 @@ const ContainerDetalhe = styled.div`
 
 export default class CardServico extends React.Component {
 
-
+    // componentDidUpdate(prevProps){
+    //     if (this.props.servico.taken !== prevProps.servico.taken){
+    //         console.log('alterou estado taken')
+    //     }
+    // }
 
     render() {
-
         return (
 
             <ContainerCardServico>
@@ -35,7 +39,7 @@ export default class CardServico extends React.Component {
 
                 <ContainerDetalhe>
                     <span onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhes</span>
-                    <button onClick={() => this.props.addToCart(this.props.servico)}>Add</button>
+                    <Button /* disabled={this.props.servico.taken} */ onClick={() => this.props.addToCart(this.props.servico)}>Add</Button>
                 </ContainerDetalhe>
 
             </ContainerCardServico>
