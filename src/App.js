@@ -7,7 +7,7 @@ import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
-
+import TelaDetalhes from './components/TelaDetalhes'
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -24,10 +24,12 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Carrinho",
-    idParaDetalhe: ''
+    componenteAtual: "Detalhes",
+    irParaDetalhe : ""
   }
-
+  // componentDidMount() {
+  //   this.irParaHome()
+  // }
   irParaHome = () => {
     this.setState({componenteAtual: "Home"})
   }
@@ -67,8 +69,8 @@ export default class App extends React.Component {
         return 
         // <TelaDetalhes id={this.state.irParaDetalhe}/>
       default:
-        return 
-        // <Home />
+        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
+        
     }
   }
 
@@ -84,6 +86,7 @@ export default class App extends React.Component {
             irListaDeServicos={this.irParaListaDeServicos}
           />
           {this.escolherComponente()}
+          
         </DivAppContainer>
       </ThemeProvider>
     )
