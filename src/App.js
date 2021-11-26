@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Header from './components/Header'
 import SCart from './components/SCart'
 import Home from './components/Home'
+import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
@@ -54,17 +55,17 @@ export default class App extends React.Component {
       case "Home":
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
       case "Cadastro":
-        return  <CadastroPage />
+        return <CadastroPage />
       case "Lista de Serviços":
         return 
         // <irListaDeServicos />
       case "Carrinho":
         return <SCart 
-          irParaDetalhes={this.irParaDetalhes} 
+          irParaDetalhes={this.irParaDetalhe} 
         />
       case "Detalhes":
         return 
-        // <Detalhes id={this.state.irParaDetalhe}/>
+        // <TelaDetalhes id={this.state.irParaDetalhe}/>
       default:
         return 
         // <Home />
