@@ -27,14 +27,8 @@ export default class App extends React.Component {
   state = {
     componenteAtual: "Lista de Serviços",
     idParaDetalhe: '',
-    itensCarrinho: [],
+    itensCarrinho: []
   }
-<<<<<<< HEAD
-  // componentDidMount() {
-  //   this.irParaHome()
-  // }
-=======
->>>>>>> 6e0894f0ac3e1f45e45c3861da34535ab9aae47c
 
   irParaHome = () => {
     this.setState({ componenteAtual: "Home" })
@@ -58,7 +52,8 @@ export default class App extends React.Component {
   }
 
   addToCart = (item) => {
-    const novoCarrinho = [... this.state.itensCarrinho, item]
+    const itemTaken = {...item, taken: true}
+    const novoCarrinho = [... this.state.itensCarrinho, itemTaken]
     this.setState({ itensCarrinho: novoCarrinho })
   }
 
@@ -99,6 +94,7 @@ export default class App extends React.Component {
             irParaDetalhes={this.irParaDetalhes}
             irCarrinho={this.irParaCarrinho}
             irHome={this.irParaHome}
+            itensCarrinho={this.state.itensCarrinho}
           />
         case "Carrinho":
           return <SCart
@@ -119,7 +115,6 @@ export default class App extends React.Component {
     }
 
     render() {
-      console.log(this.state.buscaServico)
       return (
         <ThemeProvider theme={theme}>
           <GlobalStyle />
