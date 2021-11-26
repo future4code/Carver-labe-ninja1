@@ -12,7 +12,11 @@ const ContainerCardServico = styled.div`
     padding-bottom: 10px;
     box-shadow: 3px 3px 3px gray;
     border-radius: 10px;
+`
 
+const ContainerDetalhe = styled.div`
+    display: flex;
+    cursor: pointer;
 `
 
 export default class CardServico extends React.Component {
@@ -27,9 +31,9 @@ export default class CardServico extends React.Component {
             <ContainerCardServico>
 
                 <h1>{this.props.title}</h1>
-                <h2>Ate {this.props.dueDate} Por R$ {this.props.price}</h2>
+                <h2>Ate {this.props.dueDate.replace('T00:00:00.000Z', "")} Por R$ {this.props.price}</h2>
                 
-               <div> Detalhes </div>
+               <ContainerDetalhe onClick={() => this.props.irParaDetalhes(this.props.id)}> Detalhes </ContainerDetalhe>
 
             </ContainerCardServico>
 

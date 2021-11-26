@@ -62,54 +62,7 @@ export default class SCart extends Component {
 
     state = {
         // começar o carrinho com a props recebida da lista de serviços?
-        sCart: [{
-            id: "efed9385-cf87-4f0e-a121-465384b3f2e4",
-            title: "Cortar a grama",
-            description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-            price: 40,
-            paymentMethods: [
-                "PayPal",
-                "boleto"
-            ],
-            dueDate: "2021-12-30T00:00:00.000Z",
-            taken: false
-        },
-        {
-            id: "efed9385-cf87-4f0e-a121-465384b3f2f4",
-            title: "Pintar a grama",
-            description: "Pintura de áreas verdes de até 1000 metros quadrados.",
-            price: 80,
-            paymentMethods: [
-                "PayPal",
-                "boleto"
-            ],
-            dueDate: "2021-12-30T00:00:00.000Z",
-            taken: false
-        },
-        {
-            id: "efed9385-cf87-4f0e-a121-465384b3f2g4",
-            title: "Pular a grama",
-            description: "Pular em áreas verdes de até 1000 metros quadrados.",
-            price: 20,
-            paymentMethods: [
-                "PayPal",
-                "boleto"
-            ],
-            dueDate: "2021-12-30T00:00:00.000Z",
-            taken: false
-        },
-        {
-            id: "efed9385-cf87-4f0e-a121-465384b3f2h4",
-            title: "Comer a grama",
-            description: "Comer áreas verdes de até 1000 metros quadrados.",
-            price: 100,
-            paymentMethods: [
-                "PayPal",
-                "boleto"
-            ],
-            dueDate: "2021-12-30T00:00:00.000Z",
-            taken: false
-        }]
+        sCart: this.props.itensCarrinho
     }
 
     // componentDidMount(){
@@ -117,17 +70,17 @@ export default class SCart extends Component {
     //     this.setState({sCart: novoCarrinho})
     // }
 
-    removeFromCart = (id) => {
-        const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
-        if (confirmacao) {
-            const newCart = this.state.sCart.filter(item => {
-                if (id !== item.id) {
-                    return item
-                }
-            })
-            this.setState({ sCart: newCart })
-        }
-    }
+    // removeFromCart = (id) => {
+    //     const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
+    //     if (confirmacao) {
+    //         const newCart = this.state.sCart.filter(item => {
+    //             if (id !== item.id) {
+    //                 return item
+    //             }
+    //         })
+    //         this.setState({ sCart: newCart })
+    //     }
+    // }
 
     clearCart = () => {
         const confirmacao = window.confirm('Deseja realmente limpar o carrinho?')
