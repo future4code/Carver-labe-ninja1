@@ -19,4 +19,3 @@ Tela de Detalhes - Na tela de detalhes é possível visualizar o que cada servi�
 Por fim, cada ação executada pelo usuário emite um aviso de confirmação ou erro, deixando assim tanto a UI quanto a UX do usuário o mais prazerosa prossível. 
 
 Para alcançar os objetivos propostos, utilizamos a implementação de funções JS (JavaScript), API Axios e estilização com MIU (MATERIAL-UI). 
-
