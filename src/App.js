@@ -29,12 +29,6 @@ export default class App extends React.Component {
     idParaDetalhe: '',
     itensCarrinho: [],
   }
-<<<<<<< HEAD
-  // componentDidMount() {
-  //   this.irParaHome()
-  // }
-=======
->>>>>>> 6e0894f0ac3e1f45e45c3861da34535ab9aae47c
 
   irParaHome = () => {
     this.setState({ componenteAtual: "Home" })
