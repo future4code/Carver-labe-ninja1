@@ -29,9 +29,7 @@ export default class App extends React.Component {
     idParaDetalhe: '',
     itensCarrinho: []
   }
-  // componentDidMount() {
-  //   this.irParaHome()
-  // }
+
   irParaHome = () => {
     this.setState({ componenteAtual: "Home" })
   }
@@ -68,7 +66,17 @@ export default class App extends React.Component {
       })
       this.setState({ itensCarrinho: novoCarrinho })
     }
+  } 
+
+  clearCart = () => {
+    const confirmacao = window.confirm('Deseja realmente limpar o carrinho?')
+    confirmacao && this.setState({ itensCarrinho: [] })
   }
+
+  finalizarCompra = () => {
+    alert('Compra efetuada com sucesso!')
+    this.setState({itensCarrinho: []})
+}
 
     escolherComponente = () => {
       switch (this.state.componenteAtual) {
@@ -88,6 +96,9 @@ export default class App extends React.Component {
           return <SCart
             itensCarrinho={this.state.itensCarrinho}
             irParaDetalhes={this.irParaDetalhes}
+            removeFromCart={this.removeFromCart}
+            clearCart={this.clearCart}
+            finalizarCompra={this.finalizarCompra}
           />
         case "Detalhes":
           return <TelaDetalhes
