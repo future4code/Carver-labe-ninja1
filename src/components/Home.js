@@ -20,16 +20,21 @@ const CardButton = styled.div`
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
-    margin-top: -20px;
+    
 ` 
+const CardLogo = styled.div `
+    width: 300px;
 
+`
 export default class Home extends React.Component {
     
 
     render () {
         return (
             <DivContainer>
-                <Img src={IconeHome}/>
+                
+                <img src={IconeHome}/>
+                
                 <CardButton>
                     <Button
                         onClick={this.props.irCadastro}
