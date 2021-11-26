@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Header from './components/Header'
 import SCart from './components/SCart'
 import Home from './components/Home'
+import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
@@ -24,7 +25,8 @@ const DivAppContainer = styled.div`
 export default class App extends React.Component {
   state = {
     componenteAtual: "Carrinho",
-    idParaDetalhe: ''
+    idParaDetalhe: '',
+    itensCarrinho: []
   }
 
   irParaHome = () => {
@@ -46,7 +48,11 @@ export default class App extends React.Component {
   irParaDetalhes = (id) => {
     this.setState({componenteAtual: "Detalhes"})
     this.setState({irParaDetalhe: id})
-    console.log(id)
+  }
+
+  addToCart = (item) => {
+    const novoCarrinho = [... this.state.itensCarrinho, item]
+    this.setState({itensCarrinho: novoCarrinho})
   }
 
   escolherComponente = () => {
@@ -54,21 +60,20 @@ export default class App extends React.Component {
       case "Home":
         return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
       case "Cadastro":
-        return 
-        // <Cadastro />
+        return <CadastroPage />
       case "Lista de Serviços":
         return 
-        // <irListaDeServicos />
+        // <ListaDeServicos addToCart={this.addToCart}/>
       case "Carrinho":
         return <SCart 
+          itensCarrinho={this.state.itensCarrinho}
           irParaDetalhes={this.irParaDetalhes} 
         />
       case "Detalhes":
         return 
         // <Detalhes id={this.state.irParaDetalhe}/>
       default:
-        return 
-        // <Home />
+        return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos}/>
     }
   }
 

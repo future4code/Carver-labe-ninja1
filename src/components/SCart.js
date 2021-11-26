@@ -20,6 +20,7 @@ const ContainerTituloServico = styled.div`
 `
 
 const ContainerPrecoServico = styled.div`
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 25%;
     display: flex;
     align-items: center;
@@ -41,6 +42,7 @@ const ContainerFooter = styled.div`
 
 const ContainerPrecoTotal = styled.div`
     font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 25%;
     display: flex;
     align-items: center;
@@ -110,9 +112,10 @@ export default class SCart extends Component {
         }]
     }
 
-    addToCart = (id) => {
-
-    }
+    // componentDidMount(){
+    //     const novoCarrinho = [... this.state.sCart, this.props.itensCarrinho]
+    //     this.setState({sCart: novoCarrinho})
+    // }
 
     removeFromCart = (id) => {
         const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
@@ -141,10 +144,19 @@ export default class SCart extends Component {
 
     finalizarCompra = () => {
         alert('Compra efetuada com sucesso!')
-        this.setState({carrinho: []})
+        this.setState({sCart: []})
     }
 
-    totalCarrinho = (this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0))
+    componentDidUpdate(prevProps, prevState){
+        if (this.state.sCart !== prevState.sCart){
+            this.totalCarrinho()
+        }
+    }
+
+    totalCarrinho = () => {
+        return this.state.sCart.reduce((total, currentItem) => total = total + currentItem.price, 0)
+    }
+        
 
     footerCarrinho = () => {
         return (
@@ -153,7 +165,7 @@ export default class SCart extends Component {
                     <Button variant="contained" color='primary' onClick={this.finalizarCompra}>Finalizar Compra</Button>
                 </ContainerTituloServico>
                 <ContainerPrecoTotal>
-                    Valor Total: {this.totalCarrinho.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    Total: {this.totalCarrinho().toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </ContainerPrecoTotal>
                 <ContainerRemoverDoCarrinho>
                     <IconButton aria-label="delete" onClick={this.clearCart}>
