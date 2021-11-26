@@ -5,6 +5,15 @@ import React from 'react'
 import carrinho from '../img/addCart.png'
 import { style } from '@material-ui/system'
 
+const ContainerDetalhes = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+    width: 100vw;
+`
+
 const CardTitulo = styled.div `
     border: 1px solid red;
     display: flex;
@@ -44,36 +53,36 @@ export default class TelaDetalhes extends React.Component {
   
     }
 
+    componentDidMount(){
+        this.pegarJob()
+    }
+
 
     pegarJob = () => {
         
-        axios.
-        get(
+        axios.get(
         `https://labeninjas.herokuapp.com/jobs/${this.props.id}`,
           autorizacao,
         )
         .then((res) =>{
-          console.log(this.props.id)
           this.setState({
-                titulo: this.props.id.title,
-                descricao : this.props.id.description,
-                preco: this.props.id.price,
-                formadepg: this.props.id.paymentMethods,
-                data : this.props.id.dueDate
+                titulo: res.data.title,
+                descricao : res.data.description,
+                preco: res.data.price,
+                formadepg: res.data.paymentMethods,
+                data : res.data.dueDate.replace('T00:00:00.000Z', "")
           })
         })
         .catch((err) =>{
-          console.log(err.response.data.message)
+          console.log(err.response)
           alert("Não foi possível visualizar detalhes.")
         })
       }
    
-   
-   
-   
     render () {
+        console.log(this.state.titulo)
         return (
-            <div>
+            <ContainerDetalhes>
                 <CardTitulo>
                     <h1>
                         {this.state.titulo}
@@ -81,24 +90,26 @@ export default class TelaDetalhes extends React.Component {
                 </CardTitulo>
 
                 <ListaPg>
-                    <p>Aceita : </p>
+                    <p>Aceita: {this.state.formadepg.map((item) =>{
+                        return <span>{item} </span>
+                    })} </p>
                 </ListaPg>
 
                 <div>
-                    <h2>Até 16/10/2021 por R$ 2000,00</h2>
+                    <h4>Até {this.state.data} por R$ {this.state.preco}</h4>
                 </div>
 
                 <div>
-                    <h3>Implementador de páginas web</h3>
+                    <h4>{this.state.descricao}</h4>
                 </div>
 
                 <Button>
-                    <button> <img width = "20px" src = {carrinho}/>ADICIONAR AO CARRINHO</button>
-                    <button> VOLTAR PARA LISTA</button>
+                    <button>ADICIONAR AO CARRINHO</button>
+                    <button onClick={this.props.irListaDeServicos}> VOLTAR PARA LISTA</button>
                 </Button>
 
                 
-            </div>
+            </ContainerDetalhes>
         )
     }
     

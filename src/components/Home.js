@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import IconeHome from "../img/labeninjas.png"
+import IconeHome from '../img/labeninjas.png'
 import Button from '@mui/material/Button';
 
 
@@ -22,10 +22,6 @@ const CardButton = styled.div`
     flex-direction: row;
     
 ` 
-const CardLogo = styled.div `
-    width: 300px;
-
-`
 export default class Home extends React.Component {
     
 
@@ -33,7 +29,7 @@ export default class Home extends React.Component {
         return (
             <DivContainer>
                 
-                <img src={IconeHome}/>
+                <Img src={IconeHome}/>
                 
                 <CardButton>
                     <Button

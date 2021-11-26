@@ -20,6 +20,7 @@ const ContainerTituloServico = styled.div`
 `
 
 const ContainerPrecoServico = styled.div`
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 25%;
     display: flex;
     align-items: center;
@@ -41,6 +42,7 @@ const ContainerFooter = styled.div`
 
 const ContainerPrecoTotal = styled.div`
     font-weight: 700;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     width: 25%;
     display: flex;
     align-items: center;
@@ -107,18 +109,25 @@ export default class SCart extends Component {
             ],
             dueDate: "2021-12-30T00:00:00.000Z",
             taken: false
+        },
+        {
+            id: "355e4c23-6959-420e-8375-6e9b6275a83c",
+            title: "renan",
+            description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
+            price: 40,
+            paymentMethods: [
+                "PayPal",
+                "boleto"
+            ],
+            dueDate: "2021-12-30T00:00:00.000Z",
+            taken: false
         }]
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if(this.state.sCart !== prevState.sCart){
-            this.totalCarrinho()
-        }
-    }
-
-    addToCart = (id) => {
-
-    }
+    // componentDidMount(){
+    //     const novoCarrinho = [... this.state.sCart, this.props.itensCarrinho]
+    //     this.setState({sCart: novoCarrinho})
+    // }
 
     removeFromCart = (id) => {
         const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
@@ -147,7 +156,13 @@ export default class SCart extends Component {
 
     finalizarCompra = () => {
         alert('Compra efetuada com sucesso!')
-        this.setState({carrinho: []})
+        this.setState({sCart: []})
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if (this.state.sCart !== prevState.sCart){
+            this.totalCarrinho()
+        }
     }
 
     totalCarrinho = () =>{
