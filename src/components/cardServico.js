@@ -16,6 +16,7 @@ const ContainerCardServico = styled.div`
 
 const ContainerDetalhe = styled.div`
     display: flex;
+    justify-content: space-between;
     cursor: pointer;
 `
 
@@ -27,17 +28,17 @@ export default class CardServico extends React.Component {
 
         return (
 
-
             <ContainerCardServico>
 
-                <h1>{this.props.title}</h1>
-                <h2>Ate {this.props.dueDate.replace('T00:00:00.000Z', "")} Por R$ {this.props.price}</h2>
-                
-               <ContainerDetalhe onClick={() => this.props.irParaDetalhes(this.props.id)}> Detalhes </ContainerDetalhe>
+                <h1>{this.props.servico.title}</h1>
+                <h2>Ate {this.props.servico.dueDate.replace('T00:00:00.000Z', "")} Por R$ {this.props.servico.price}</h2>
+
+                <ContainerDetalhe>
+                    <span onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhes</span>
+                    <button onClick={() => this.props.addToCart(this.props.servico)}>Add</button>
+                </ContainerDetalhe>
 
             </ContainerCardServico>
-
-
         )
     }
 }
