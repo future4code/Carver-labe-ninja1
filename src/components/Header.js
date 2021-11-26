@@ -2,10 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import Logo from '../img/logo.png';
 import IconCarrinho from '../img/cart.png';
-import Lupa from "../img/search-3-32.png"
+// import Lupa from "../img/search-3-32.png"
 import IconAddCarrinho from "../img/addCart.png"
-
-
+import InputBase from '@material-ui/core/InputBase'
 
 
 
@@ -42,8 +41,6 @@ const ListadeServicos = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-    padding: 0 50px;
-
     
     span{
         background-color: #7869BF;
@@ -52,27 +49,7 @@ const ListadeServicos = styled.div`
 
         font-size: 21px;
         color: #F5F5F5;
-        border: none;
-    }
-    input{
-        background-color: #8C7FC9;
-        border: none;
-        border-radius: 10px;
-        font-size: 17px;
-        height: 40px;
-        width: 400px;
-        color: white;
-
-
-
-        &:hover{
-            background-color: #9A8FCF;
-            cursor: pointer;
-        }    
-    }
-    input::placeholder{
-        color: #C0B9E1;
-        padding-left: 40px;
+        border: none;       
     }
 `
 const Carrinho = styled.div`
@@ -85,7 +62,7 @@ const Carrinho = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-
+    
     span{
         background-color: #7869BF;
         font-size: 21px;
@@ -102,8 +79,7 @@ const Detalhes = styled.div`
     align-items: center;
     height: 66px;
     width: 100vw;
-
-
+    
     span{
         background-color: #7869BF;
         font-size: 21px;
@@ -121,7 +97,6 @@ const LogoButton = styled.div`
     align-items: center;
     justify-content: center;
     margin-left: 30px;
-
     &:hover{
         background-color: #7365B8;
         cursor: pointer;
@@ -134,13 +109,42 @@ const LogoButton = styled.div`
 `
 
 const DivInput = styled.div`
+    position: relative;
+    left: 0;
+    right: 0;
+    margin-right: 160px;
+    border-radius: 8px;
+    background-color: rgba(255,255,255, 0.15);
+    margin-left: 0;
+    padding: 4px;
     display: flex;
-    justify-content: center;
     align-items: center;
+    width: 400px;
+    &:hover {
+        background-color: rgba(255,255,255, 0.25);
+    }
+
+    input{
+        background-color: #8C7FC9;
+        border: none;
+        font-size: 17px;
+        height: 35px;
+        width: 400px;
+        color: white; 
+        
+        &:hover{
+        background-color: #9A8FCF;
+        cursor: pointer;
+        } 
+    }
+
+    input::placeholder{
+        color: #C0B9E1;
+    }
 
     img{
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
     }
 `
 
@@ -164,27 +168,16 @@ const IconeCarrinho = styled.div`
     }
 `
 export default class Header extends React.Component {
-    state = {
-        componenteAtual: "Lista de Serviços"
-    }
-    // onClickLabeninjas = () => {
-    //     this.setState({componenteAtual: "Home"})
-    // }
-    // onChangeInputBusca = (e) => {
-    //     this.setState({inputBusca: e.target.value})
-    // }
-    // onClickCarrinho = () => {
-    //     this.setState({componenteAtual: "Carrinho"})
-    // }
-    // onClickAddCarinho = () => {
-    //     this.setState({componenteAtual: "Lista de Serviços"})
-    // }
+
+
+
     estadoComponenteAtual = () => {
-        switch (this.state.componenteAtual) {
+        switch(this.props.paginaAtual){
+
             case "Home":
                 return (
                     <HeaderHomeECadastro>
-                        <LogoButton>
+                        <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
                        </LogoButton>
@@ -193,7 +186,7 @@ export default class Header extends React.Component {
             case "Cadastro":
                 return (
                     <HeaderHomeECadastro>
-                        <LogoButton>
+                        <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
                        </LogoButton>
@@ -202,16 +195,20 @@ export default class Header extends React.Component {
             case "Lista de Serviços":
                 return (
                     <ListadeServicos>
-
-                       <LogoButton>
+                       <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
                        </LogoButton>
                        <DivInput>
-                            <img alt="Icon de lupa" src={Lupa} />
-                            <input placeholder="Busca"></input>
+                            {/* <img alt="Icon de lupa" src={Lupa} />
+                            <input type="search" placeholder="Busca"></input> */}
+                            
+                            <InputBase
+                                inputProps={{ style: { color: 'white', width: '350px' } }}
+                                placeholder="Busca"
+                            />
                         </DivInput>
-                        <IconeCarrinho>
+                        <IconeCarrinho onClick={this.props.irCarrinho}>
                             <span>
                                 <img alt="Icone Carrinho" src={IconCarrinho} />
                             </span>
@@ -221,13 +218,11 @@ export default class Header extends React.Component {
             case "Detalhes":
                 return (
                     <Detalhes>
-                        <LogoButton>
-                            <LogoButton>
-                                <img alt="logo" src={Logo}></img>
-                                <span>LabeNinjas</span>
-                            </LogoButton>
+                        <LogoButton onClick={this.props.irHome}>
+                            <img alt="logo" src={Logo}></img>
+                            <span>LabeNinjas</span>
                         </LogoButton>
-                        <IconeCarrinho>
+                        <IconeCarrinho onClick={this.props.irCarrinho}>
                             <span>
                                 <img alt="Icone Carrinho" src={IconCarrinho} />
                             </span>
@@ -237,12 +232,11 @@ export default class Header extends React.Component {
             case "Carrinho":
                 return (
                     <Carrinho>
-                        <LogoButton>
-
+                        <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
                            <span>LabeNinjas</span>
                        </LogoButton>
-                        <IconeCarrinho>
+                        <IconeCarrinho onClick={this.props.irListaDeServicos}>
                             <span>
                                 <img alt="Icone Carrinho" src={IconAddCarrinho} />
                             </span>
@@ -252,7 +246,7 @@ export default class Header extends React.Component {
             default:
                 return (
                     <div>
-                        <LogoButton>
+                        <LogoButton onClick={this.props.irHome}>
                            <img alt="logo" src={Logo}></img>
                            <button>LabeNinjas</button>
                        </LogoButton>
