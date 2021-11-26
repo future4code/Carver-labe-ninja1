@@ -7,6 +7,8 @@ import CadastroPage from './components/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
+import Servicos from './components/serviços';
+
 import TelaDetalhes from './components/TelaDetalhes'
 
 const GlobalStyle = createGlobalStyle`
@@ -80,6 +82,7 @@ export default class App extends React.Component {
   }
 
   render () {
+
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
