@@ -39,7 +39,8 @@ export default class CardServico extends React.Component {
 
                 <ContainerDetalhe>
                     <span onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhes</span>
-                    <Button /* disabled={this.props.servico.taken} */ onClick={() => this.props.addToCart(this.props.servico)}>Add</Button>
+                    
+                    <Button onClick={() => this.props.addToCart(this.props.servico)}>Add</Button>
                 </ContainerDetalhe>
 
             </ContainerCardServico>

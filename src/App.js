@@ -53,7 +53,7 @@ export default class App extends React.Component {
 
   addToCart = (item) => {
     const itemTaken = {...item, taken: true}
-    const novoCarrinho = [... this.state.itensCarrinho, itemTaken]
+    const novoCarrinho = [...this.state.itensCarrinho, itemTaken]
     this.setState({ itensCarrinho: novoCarrinho })
   }
 

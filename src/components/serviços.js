@@ -156,17 +156,6 @@ export default class Servicos extends React.Component {
         this.novosServicos()
     }
 
-    // componentDidUpdate(prevProps){
-    //     if (this.props.itensCarrinho !== prevProps.itensCarrinho){
-    //         this.state.listaServico.map(item => {
-
-    //         })
-    //         if (this.props.itensCarrinho.id === this.state.listaServico.id) {
-    //             novoEstado
-    //         }
-    //     }
-    // }
-
     novosServicos = () => {
         axios.get(baseURL + "/jobs", autorizacao)
             .then((res) => {
