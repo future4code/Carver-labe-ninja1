@@ -1,9 +1,7 @@
-import react from 'react'
 import axios from 'axios'
 import styled from 'styled-components'
 import React from 'react'
-import carrinho from '../img/addCart.png'
-import { style } from '@material-ui/system'
+import { Button } from '@material-ui/core'
 
 const ContainerDetalhes = styled.div`
     display: flex;
@@ -14,32 +12,50 @@ const ContainerDetalhes = styled.div`
     width: 100vw;
 `
 const CardTitulo = styled.div`
-    border: 1px solid red;
     display: flex;
     justify-content: center;
+    border-bottom: 2px solid #7C66C5;
+    margin-bottom: 20px;
 `
 const ListaPg = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 `
-const Button = styled.div`
-    width: 300px;
-    height: 60px;
+const Botoes = styled.div`
+    height: 40px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    border: 1px solid black;
+    justify-content: space-around;
 `
+
+const ContainerFormasPagto = styled.div`
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 5px 10px;
+    padding: 2px 5px;
+    border-radius: 30px;
+    background-color: #7C66C5;
+    color: whitesmoke;
+`
+
+const ContainerParaFormasPagto = styled.div`
+    display: flex;
+`
+
 const autorizacao = {
     headers: {
         Authorization: "9625d647-f235-4369-90c5-7e1f0a933d2d"
     }
 }
+
+
 export default class TelaDetalhes extends React.Component {
     state = {
         servico: {},
         metodosPagto: [],
-        data: '' 
+        data: ''
     }
 
     componentDidMount() {
@@ -73,9 +89,12 @@ export default class TelaDetalhes extends React.Component {
                     </h1>
                 </CardTitulo>
                 <ListaPg>
-                    <p>Aceita: {this.state.metodosPagto.map((item) => {
-                        return <span>{item} </span>
-                    })} </p>
+                    Métodos de pagamento aceitos
+                    <ContainerParaFormasPagto>
+                        {this.state.metodosPagto.map((item) => {
+                            return <ContainerFormasPagto>{item}</ContainerFormasPagto>
+                        })}
+                    </ContainerParaFormasPagto>
                 </ListaPg>
                 <div>
                     <h4>Até {this.state.data} por R$  {this.state.servico.price}</h4>
@@ -83,10 +102,11 @@ export default class TelaDetalhes extends React.Component {
                 <div>
                     <h4>{this.state.servico.description}</h4>
                 </div>
-                <Button>
-                    <button onClick={() => this.props.addToCart(this.state.servico)} >ADICIONAR AO CARRINHO</button>
-                    <button onClick={this.props.irListaDeServicos}> VOLTAR PARA LISTA</button>
-                </Button>
+                <Botoes>
+                    <Button variant="text" onClick={() => this.props.addToCart(this.state.servico)}>Adicionar ao Carrinho</Button>
+                    <hr/>
+                    <Button variant="text" onClick={this.props.irListaDeServicos}>Voltar para a Lista</Button>
+                </Botoes>
             </ContainerDetalhes>
         )
     }
