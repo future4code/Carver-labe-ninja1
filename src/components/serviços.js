@@ -71,7 +71,6 @@ const DivInput = styled.div`
         
         &:hover{
         background-color: #9A8FCF;
-        cursor: pointer;
         } 
     }
 
@@ -114,8 +113,25 @@ const ContainerServico = styled.div`
 `
 
 const ContainerInputs = styled.div`
+    height: 30px;
     display: flex;
-    background-color: gray;
+    background-color: #DAD4EF;
+    justify-content: center;
+    align-items: center;
+    select{
+        height: 25px;
+        margin: 0 5px;
+        border: 1px solid #DAD4EF;
+        border-radius: 3px;
+    }
+    input{
+        padding: 0 2px;
+        align-self: center;
+        height: 23px;
+        margin: 0 5px;
+        border: 1px solid #DAD4EF;
+        border-radius: 3px;
+    }
 `
 
 
@@ -134,10 +150,11 @@ export default class Servicos extends React.Component {
         cresceOUdecre: "1",
         buscaServico: "",
         valorMinimo: "",
-        valorMaximo: ""
+        valorMaximo: "",
+        itensCarrinho: []
     }
 
-    // itensCarrinho. teve mudança. 
+    // itensCarrinho. teve mudança. errado. não teve mudança, já vem com taken = true...  
     // atualizar this.state.listaServico. se id = id, taken = true
 
     pegarValorBusca = (e) => {
@@ -156,22 +173,22 @@ export default class Servicos extends React.Component {
         this.novosServicos()
     }
 
-    // componentDidUpdate(prevProps){
-    //     if (this.props.itensCarrinho !== prevProps.itensCarrinho){
-    //         this.state.listaServico.map(item => {
-
-    //         })
-    //         if (this.props.itensCarrinho.id === this.state.listaServico.id) {
-    //             novoEstado
-    //         }
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState){
+        if (this.state.itensCarrinho !== prevState.itensCarrinho){
+            this.state.listaServico.map(item => {
+                if (item.id === this.state.itensCarrinho.id) {
+                    const novoItemListaServico = {...item, taken: true}
+                    this.setState({listaServico: novoItemListaServico})
+                    console.log('apos atualizacao:', this.state.listaServico)
+                }
+            })
+        }
+    }
 
     novosServicos = () => {
         axios.get(baseURL + "/jobs", autorizacao)
             .then((res) => {
                 this.setState({ listaServico: res.data.jobs })
-                console.log(res)
             })
             .catch((err) => {
                 console.log(err.response)
@@ -228,6 +245,8 @@ export default class Servicos extends React.Component {
     }
 
     render() {
+        console.log('itensCarrinho da ListaServico:', this.state.itensCarrinho)
+        console.log('itensCarrinho recebido de app:', this.props.itensCarrinho)
         return (
 
             <div>
@@ -253,7 +272,7 @@ export default class Servicos extends React.Component {
                             }
                         })
                         .map((servico) => {
-                            return <CardServico servico={servico} irParaDetalhes={this.props.irParaDetalhes} addToCart={this.props.addToCart} />
+                            return <CardServico key={servico.id} servico={servico} irParaDetalhes={this.props.irParaDetalhes} addToCart={this.props.addToCart} />
                         }
                         )}
                 </ContainerServico>
