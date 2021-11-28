@@ -9,11 +9,14 @@ import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
 import Servicos from './components/serviços';
 import TelaDetalhes from './components/TelaDetalhes'
+import Alert from '@mui/material/Alert';
 
 const GlobalStyle = createGlobalStyle`
   body{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
 `
 const DivAppContainer = styled.div`
@@ -52,10 +55,15 @@ export default class App extends React.Component {
   }
 
   addToCart = (item) => {
-    const itemTaken = {...item, taken: true}
+    
+    const itemTaken = {...item, taken: true, qtd:1}
     const novoCarrinho = [...this.state.itensCarrinho, itemTaken]
     this.setState({ itensCarrinho: novoCarrinho })
+    alert('Item adicionado ao carrinho com sucesso!')
+    // return (<Alert severity="success">Item adicionado ao carrinho com sucesso!</Alert>)
   }
+
+
 
   removeFromCart = (id) => {
     const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
@@ -115,6 +123,7 @@ export default class App extends React.Component {
     }
 
     render() {
+      console.log(this.state.itensCarrinho)
       return (
         <ThemeProvider theme={theme}>
           <GlobalStyle />

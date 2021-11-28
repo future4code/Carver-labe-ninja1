@@ -109,8 +109,6 @@ export default class SCart extends Component {
     }
 
     render() {
-        console.log(this.state.sCart)
-        console.log(this.props.itensCarrinho)
 
         const itensCarrinho = this.state.sCart.map(item => {
             return (
