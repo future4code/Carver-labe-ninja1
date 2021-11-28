@@ -1,10 +1,11 @@
 # Projeto LABENINJAS - GRUPO 1 
 <hr/>
-Cesar Huber
-Gabriel Gomes 
-André Vinicius Marques
-Renan Lopestri
-Thayna Saad
+
+<li>Cesar Huber
+<li>Gabriel Gomes 
+<li>André Vinicius Marques
+<li>Renan Lopestri
+<li>Thayna Saad
 
 ## Proposta
 A proposta do projeto era criar um site que apresentasse ao usuário a possibilidade de encontrar prestadores de serviços de forma prática e eficiente, para isso utilizamos os conhecimentos adquiridos até a etapa atual do curso. 
