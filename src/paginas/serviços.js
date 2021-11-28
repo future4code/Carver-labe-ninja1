@@ -1,5 +1,5 @@
 import React from "react";
-import CardServico from "./cardServico";
+import CardServico from "../components/cardServico";
 import styled from "styled-components"
 import axios from "axios"
 import InputBase from '@material-ui/core/InputBase'
@@ -158,28 +158,27 @@ export default class Servicos extends React.Component {
     // atualizar this.state.listaServico. se id = id, taken = true
 
     pegarValorBusca = (e) => {
-        this.setState({buscaServico: e.target.value})
+        this.setState({ buscaServico: e.target.value })
     }
 
     pegarValorMinimo = (e) => {
-        this.setState({valorMinimo: e.target.value})
+        this.setState({ valorMinimo: e.target.value })
     }
 
     pegarValorMaximo = (e) => {
-        this.setState({valorMaximo: e.target.value})
+        this.setState({ valorMaximo: e.target.value })
     }
 
     componentDidMount() {
         this.novosServicos()
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if (this.state.itensCarrinho !== prevState.itensCarrinho){
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.itensCarrinho !== prevState.itensCarrinho) {
             this.state.listaServico.map(item => {
                 if (item.id === this.state.itensCarrinho.id) {
-                    const novoItemListaServico = {...item, taken: true}
-                    this.setState({listaServico: novoItemListaServico})
-                    console.log('apos atualizacao:', this.state.listaServico)
+                    const novoItemListaServico = { ...item, taken: true }
+                    this.setState({ listaServico: novoItemListaServico })
                 }
             })
         }
@@ -210,10 +209,10 @@ export default class Servicos extends React.Component {
             <div>
                 <ListadeServicos>
                     <LogoButton onClick={this.props.irHome}>
-                            <img alt="logo" src={Logo}></img>
-                            <span>LabeNinjas</span>
-                   </LogoButton>
-                   <DivInput>  
+                        <img alt="logo" src={Logo}></img>
+                        <span>LabeNinjas</span>
+                    </LogoButton>
+                    <DivInput>
                         <InputBase
                             onChange={this.pegarValorBusca}
                             value={this.state.buscaServico}
@@ -225,7 +224,7 @@ export default class Servicos extends React.Component {
                         <span>
                             <img alt="Icone Carrinho" src={IconCarrinho} />
                         </span>
-                     </IconeCarrinho>
+                    </IconeCarrinho>
                 </ListadeServicos>
                 <ContainerInputs>
                     <select value={this.state.ordenacao} onChange={this.mudancaOrdenacao}>
@@ -245,16 +244,14 @@ export default class Servicos extends React.Component {
     }
 
     render() {
-        console.log('itensCarrinho da ListaServico:', this.state.itensCarrinho)
-        console.log('itensCarrinho recebido de app:', this.props.itensCarrinho)
         return (
 
             <div>
                 {this.filtros()}
                 <ContainerServico>
                     {this.state.listaServico.filter((servico) => {
-                            return servico.title.toLowerCase().includes(this.state.buscaServico.toLocaleLowerCase())
-                        })
+                        return servico.title.toLowerCase().includes(this.state.buscaServico.toLocaleLowerCase())
+                    })
                         .filter((servico) => {
                             return this.state.valorMinimo === "" || servico.price >= this.state.valorMinimo
                         })
@@ -272,7 +269,7 @@ export default class Servicos extends React.Component {
                             }
                         })
                         .map((servico) => {
-                            return <CardServico key={servico.id} servico={servico} irParaDetalhes={this.props.irParaDetalhes} addToCart={this.props.addToCart} />
+                            return <CardServico itensCarrinho={this.props.itensCarrinho}  key={servico.id} servico={servico} irParaDetalhes={this.props.irParaDetalhes} addToCart={this.props.addToCart} />
                         }
                         )}
                 </ContainerServico>
