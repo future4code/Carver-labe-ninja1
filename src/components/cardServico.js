@@ -26,43 +26,50 @@ const ContainerDetalhe = styled.div`
 `
 
 export default class CardServico extends React.Component {
+    state = {
+        servicoInCart: false
+    }
+    componentDidMount() {
+        this.verificaServiçoNoCarrinho()
+    }
 
-    card = (
-        <React.Fragment>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Ativo até: {this.props.servico.dueDate.replace('T00:00:00.000Z', "")}
-                </Typography>
-                <Typography variant="h5" component="div">
-                    {this.props.servico.title}
-                </Typography>
-                <Typography variant="body2">
-                    {this.props.servico.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
-                </Typography>
-            </CardContent>
-            <CardActions style={{ display: 'flex', justifyContent: "space-between" }}>
-                <Button size="small" onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhe</Button>
-                <Button size="small" onClick={() => this.props.addToCart(this.props.servico)}><ShoppingCartIcon/></Button>
-            </CardActions>
-        </React.Fragment>
-    );
+    componentDidUpdate(prevProps) {
+        if (this.props.itensCarrinho !== prevProps.itensCarrinho) {
+            this.verificaServiçoNoCarrinho()
+        }
+    }
+
+    verificaServiçoNoCarrinho = () => {
+        for (const item of this.props.itensCarrinho) {
+            if (this.props.servico.id === item.id) {
+                this.setState({ servicoInCart: true })
+            }
+        }
+    }
 
     render() {
         return (
             <Box m={1} sx={{ boxShadow: 3, borderRadius: 2 }}>
-                <Card variant="outlined">{this.card}</Card>
+                <Card variant="outlined">
+                    <React.Fragment>
+                        <CardContent>
+                            <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                                Ativo até: {this.props.servico.dueDate.replace('T00:00:00.000Z', "")}
+                            </Typography>
+                            <Typography variant="h5" component="div">
+                                {this.props.servico.title}
+                            </Typography>
+                            <Typography variant="body2">
+                                {this.props.servico.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                            </Typography>
+                        </CardContent>
+                        <CardActions style={{ display: 'flex', justifyContent: "space-between" }}>
+                            <Button size="small" onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhe</Button>
+                            <Button disabled={this.state.servicoInCart} size="small" onClick={() => this.props.addToCart(this.props.servico)}><ShoppingCartIcon /></Button>
+                        </CardActions>
+                    </React.Fragment>
+                </Card>
             </Box>
-            // <ContainerCardServico key={this.props.servico.id}>
-
-            //     <h1>{this.props.servico.title}</h1>
-            //     <h2>Ate {this.props.servico.dueDate.replace('T00:00:00.000Z', "")} Por R$ {this.props.servico.price}</h2>
-
-            //     <ContainerDetalhe>
-            //         <Button onClick={() => this.props.irParaDetalhes(this.props.servico.id)}>Detalhes</Button>
-            //         <Button /* disabled={this.props.servico.taken} */ onClick={() => this.props.addToCart(this.props.servico)}>Add</Button>
-            //     </ContainerDetalhe>
-
-            // </ContainerCardServico>
         )
     }
 }

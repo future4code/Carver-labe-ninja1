@@ -55,13 +55,28 @@ export default class TelaDetalhes extends React.Component {
     state = {
         servico: {},
         metodosPagto: [],
-        data: ''
+        data: '',
+        servicoInCart:false
     }
 
     componentDidMount() {
         this.pegarJob()
+        this.verificaServiçoNoCarrinho()
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.itensCarrinho !== prevProps.itensCarrinho) {
+            this.verificaServiçoNoCarrinho()
+        }
+    }
+
+    verificaServiçoNoCarrinho = () => {
+        for (const item of this.props.itensCarrinho) {
+            if (this.state.servico.id === item.id) {
+                this.setState({ servicoInCart: true })
+            }
+        }
+    }
     pegarJob = () => {
         axios.get(
             `https://labeninjas.herokuapp.com/jobs/${this.props.id}`,
@@ -103,8 +118,8 @@ export default class TelaDetalhes extends React.Component {
                     <h4>{this.state.servico.description}</h4>
                 </div>
                 <Botoes>
-                    <Button variant="text" onClick={() => this.props.addToCart(this.state.servico)}>Adicionar ao Carrinho</Button>
-                    <hr/>
+                    <Button disabled={this.state.servicoInCart} variant="text" onClick={() => this.props.addToCart(this.state.servico)}>Adicionar ao Carrinho</Button>
+                    <hr />
                     <Button variant="text" onClick={this.props.irListaDeServicos}>Voltar para a Lista</Button>
                 </Botoes>
             </ContainerDetalhes>
