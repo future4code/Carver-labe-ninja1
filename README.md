@@ -1,9 +1,9 @@
 # Projeto LABENINJAS - GRUPO 1 
 <hr/>
 
+<li>André Vinicius Marques
 <li>Cesar Huber
 <li>Gabriel Gomes 
-<li>André Vinicius Marques
 <li>Renan Lopestri
 <li>Thayna Saad
 
