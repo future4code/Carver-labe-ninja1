@@ -56,16 +56,16 @@ export default class TelaDetalhes extends React.Component {
         servico: {},
         metodosPagto: [],
         data: '',
-        servicoInCart:false
+        servicoInCart: false
     }
 
     componentDidMount() {
         this.pegarJob()
-        this.verificaServiçoNoCarrinho()
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.itensCarrinho !== prevProps.itensCarrinho) {
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.itensCarrinho !== prevProps.itensCarrinho || 
+            this.state.servico !== prevState.servico) {
             this.verificaServiçoNoCarrinho()
         }
     }
