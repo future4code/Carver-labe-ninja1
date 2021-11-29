@@ -10,7 +10,6 @@ import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 
-
 const CadastroContainer = styled.div`
 button{
   margin-top: 10%;
@@ -82,8 +81,6 @@ export default class CadastroPage extends React.Component {
   handlePaymentCartaoDeCredito = (ev) => {
     this.setState({ cartaoDeCredtio: ev.target.checked })
   }
-
-
 
   componentDidUpdate(prevProps, prevState) {
     if (this.state.payPal !== prevState.payPal) {
@@ -198,16 +195,11 @@ export default class CadastroPage extends React.Component {
       })
     }
 
-
-
   render() {
-
     return (
       <Body>
         <CadastroContainer>
-
           <h1>Cadastre o seu serviço</h1>
-
           <TextField
             value={this.state.title}
             onChange={this.handleTitle}
@@ -216,7 +208,6 @@ export default class CadastroPage extends React.Component {
             variant="outlined"
             margin="dense"
           />
-
           <TextField
             value={this.state.description}
             onChange={this.handleDescription}
@@ -225,7 +216,6 @@ export default class CadastroPage extends React.Component {
             margin="dense"
             label="Descrição"
           />
-
           <FormControl margin="dense">
             <InputLabel htmlFor="outlined-adornment-amount">Valor</InputLabel>
             <OutlinedInput
@@ -237,43 +227,34 @@ export default class CadastroPage extends React.Component {
               label="Valor"
             />
           </FormControl>
-
           <FormControlLabel
             control={<Checkbox checked={this.state.cartaoDeCredtio} onChange={this.handlePaymentCartaoDeCredito} />}
             label="Cartão de Crédito"
           />
-
           <FormControlLabel
             control={<Checkbox checked={this.state.cartaoDeDebito} onChange={this.handlePaymentCartaoDeDebito} />}
             label="Cartão de Débito"
           />
-
           <FormControlLabel
             control={<Checkbox checked={this.state.pix} onChange={this.handlePaymentPix} />}
             label="Pix" />
-
           <FormControlLabel
             control={<Checkbox checked={this.state.boleto} onChange={this.handlePaymentBoleto} />}
             label="Boleto" />
-
           <FormControlLabel
             control={<Checkbox checked={this.state.payPal} onChange={this.handlePaymentPayPal} />}
-
             label="PayPal" />
-
           <input
             type="date"
             value={this.state.dueDate}
             onChange={this.handleDate}
           />
-
           <Button
             variant="contained"
             onClick={this.postJob}
             disableElevation>
             Cadastrar
           </Button>
-
         </CadastroContainer>
       </Body>
     )

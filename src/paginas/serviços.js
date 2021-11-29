@@ -190,7 +190,7 @@ export default class Servicos extends React.Component {
                 this.setState({ listaServico: res.data.jobs })
             })
             .catch((err) => {
-                console.log(err.response)
+                alert(err.response)
             })
     }
 
@@ -201,8 +201,6 @@ export default class Servicos extends React.Component {
     mudancaCreceOUdecre = (evento) => {
         this.setState({ cresceOUdecre: evento.target.value })
     }
-
-
 
     filtros = () => {
         return (
@@ -245,7 +243,6 @@ export default class Servicos extends React.Component {
 
     render() {
         return (
-
             <div>
                 {this.filtros()}
                 <ContainerServico>
