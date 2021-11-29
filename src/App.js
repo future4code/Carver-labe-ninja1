@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
-import Header from './components/Header'
-import SCart from './components/SCart'
-import Home from './components/Home'
-import CadastroPage from './components/NewJob'
+import Header from './components/Header/Header'
+import SCart from './components/SCart/SCart'
+import Home from './paginas/Home'
+import CadastroPage from './paginas/NewJob'
 import { createGlobalStyle } from 'styled-components'
 import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
-import Servicos from './components/serviços';
-import TelaDetalhes from './components/TelaDetalhes'
+import Servicos from './paginas/serviços';
+import TelaDetalhes from './paginas/TelaDetalhes'
 import Alert from '@mui/material/Alert';
 
 const GlobalStyle = createGlobalStyle`
@@ -28,10 +28,11 @@ const DivAppContainer = styled.div`
 
 export default class App extends React.Component {
   state = {
-    componenteAtual: "Lista de Serviços",
+    componenteAtual: "Home",
     idParaDetalhe: '',
     itensCarrinho: []
   }
+
 
   irParaHome = () => {
     this.setState({ componenteAtual: "Home" })
@@ -116,7 +117,9 @@ export default class App extends React.Component {
           return <TelaDetalhes
             id={this.state.idParaDetalhe}
             irListaDeServicos={this.irParaListaDeServicos}
-            addToCart={this.addToCart} />
+            addToCart={this.addToCart}
+            itensCarrinho={this.state.itensCarrinho}
+             />
         default:
           return <Home irCadastro={this.irParaCadastro} irListaDeServicos={this.irParaListaDeServicos} />
       }

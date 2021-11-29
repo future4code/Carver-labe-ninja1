@@ -1,0 +1,398 @@
+[33mcommit 36e3266cdc42a7f8986710fe924376f91d0c1190[m[33m ([m[1;36mHEAD -> [m[1;32mrenan-3[m[33m)[m
+Merge: 6e0894f 9f4fdcc
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Fri Nov 26 19:41:43 2021 +0100
+
+    Merge pull request #14 from future4code/andre4
+    
+    Andre4
+
+[33mcommit 9f4fdcc3d98df1785a321321ea921a3b10b46b96[m
+Merge: 8251796 6e0894f
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 19:41:13 2021 +0100
+
+    Resolvendo conflitos
+
+[33mcommit 6e0894f0ac3e1f45e45c3861da34535ab9aae47c[m
+Merge: aa9c91f 3b1a36b
+Author: Cesar Huber <43020640+cesarhuber@users.noreply.github.com>
+Date:   Fri Nov 26 15:38:32 2021 -0300
+
+    Merge pull request #15 from future4code/cesar7
+    
+    cesar - inclusão ajustes integração carrinho
+
+[33mcommit 3b1a36bd005bc8482793b9978d539a51880e6d05[m
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Fri Nov 26 15:37:34 2021 -0300
+
+    cesar - inclusão ajustes integração carrinho
+
+[33mcommit 825179673d131223ed085d643456fcd4406a0184[m
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 19:34:55 2021 +0100
+
+    Faltando apenas o carrinho
+
+[33mcommit 7bf861c7b1566980dff89aeeb019b4170787731c[m
+Merge: 7be6738 aa9c91f
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 17:23:40 2021 +0100
+
+    Resolvendo conflitos
+
+[33mcommit aa9c91f865d86502f3fa1d6d44eff354044d6b5c[m[33m ([m[1;32mmaster[m[33m)[m
+Merge: eb7fd71 8e4ae9b
+Author: Cesar Huber <43020640+cesarhuber@users.noreply.github.com>
+Date:   Fri Nov 26 13:21:30 2021 -0300
+
+    Merge pull request #13 from future4code/cesar6
+    
+    cesar - inclusão revisões integração parte quase final
+
+[33mcommit 8e4ae9b604ac1d41b7a41147301707ad2cff2098[m[33m ([m[1;31morigin/cesar6[m[33m)[m
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Fri Nov 26 13:20:13 2021 -0300
+
+    cesar - inclusão revisões integração parte quase final
+
+[33mcommit 7be6738555b7aef9ae5e0b406e40e2e276e459a6[m
+Merge: 212d697 c91045c
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 17:20:09 2021 +0100
+
+    Atualizacoes
+
+[33mcommit eb7fd7171674e1e570ddd8ab603ff54c2e98d234[m
+Merge: c91045c 9642cb5
+Author: GabrielGCJ <91347602+GabrielGCJ@users.noreply.github.com>
+Date:   Fri Nov 26 11:50:08 2021 -0300
+
+    Merge pull request #12 from future4code/gbbranch1
+    
+    pagina de serviços
+
+[33mcommit 9642cb5d424fb27c1240acca5dc38862d8de3c73[m[33m ([m[1;31morigin/gbbranch1[m[33m)[m
+Merge: 211ebe8 c91045c
+Author: Gabriel Jorge <gabriel.ggcj@gmail.com>
+Date:   Fri Nov 26 11:48:02 2021 -0300
+
+    gabriel resolução de conflitos
+
+[33mcommit 212d697e92dc9a30f841a771dbb7a274eff4e07b[m
+Merge: 18d6c14 ea0d24f
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 09:16:15 2021 +0100
+
+    Atualizacoes
+
+[33mcommit c91045c4bd674ec2bffa8a1529551c192ba3fbd4[m
+Merge: ea0d24f 2555f93
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Fri Nov 26 09:06:26 2021 +0100
+
+    Merge pull request #11 from future4code/cesar4
+    
+    cesar - inclusão revisão carrinho e integração com app.js
+
+[33mcommit 18d6c14047f21e7db7a1f51268622ba6d0f56c76[m
+Author: André <andremarks99@gmail.com>
+Date:   Fri Nov 26 08:59:43 2021 +0100
+
+    Atualizacoes
+
+[33mcommit 211ebe8ffd60c7ebc55cb9fd29a02f4a155982d4[m
+Author: Gabriel Jorge <gabriel.ggcj@gmail.com>
+Date:   Thu Nov 25 22:22:58 2021 -0300
+
+    pagina de serviços
+
+[33mcommit 2555f93718321b802450dc5d59bf3b0732e8bc0c[m[33m ([m[1;31morigin/cesar4[m[33m)[m
+Merge: b69bc0c ea0d24f
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Thu Nov 25 21:49:46 2021 -0300
+
+    cesar - resolução de conflitos
+
+[33mcommit b69bc0cd8637dabf4db95ba798661bf42036653e[m
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Thu Nov 25 21:46:21 2021 -0300
+
+    cesar - inclusão revisão carrinho e integração com app.js
+
+[33mcommit ea0d24fabc1aa89c42a7c5dd751615d56acff868[m
+Merge: f7fd221 d319ee8
+Author: Cesar Huber <43020640+cesarhuber@users.noreply.github.com>
+Date:   Thu Nov 25 20:32:10 2021 -0300
+
+    Merge pull request #10 from future4code/thay1
+    
+    Thay1
+
+[33mcommit d319ee829c713d9039442278aae5c1be77793aaf[m[33m ([m[1;31morigin/thay1[m[33m)[m
+Merge: bbc9c26 f7fd221
+Author: Thayna Jorge <thaynasaad.ts@gmail.com>
+Date:   Thu Nov 25 20:12:12 2021 -0300
+
+    Criação tela de detalhes
+
+[33mcommit ec5ad08523f4466a9bc0b33a89098f04052af9c5[m
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 20:51:10 2021 +0100
+
+    Atualizacao
+
+[33mcommit bbc9c269ee54d2fe4941357ffe4c72242f7d8539[m
+Author: Thayna Jorge <thaynasaad.ts@gmail.com>
+Date:   Thu Nov 25 16:44:00 2021 -0300
+
+    Atualização Branch
+
+[33mcommit f7fd2218a4aef7b1d026cfaf40ad3637d8f7bd3e[m[33m ([m[1;32mrenan2[m[33m)[m
+Merge: 0c92b1e 18f24d4
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Thu Nov 25 19:44:19 2021 +0100
+
+    Merge pull request #9 from future4code/andre3
+    
+    Andre3
+
+[33mcommit 18f24d443b59f2b426394898e2b094d89dc0675a[m[33m ([m[1;31morigin/andre3[m[33m)[m
+Merge: a09548f 0c92b1e
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 19:43:12 2021 +0100
+
+    Ultima atualizacao
+
+[33mcommit a09548fb0a11da272377039649c88bc2b993a64b[m
+Merge: 3039ec5 2ab1f86
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 19:36:42 2021 +0100
+
+    Atualizando
+
+[33mcommit 0c92b1ebd121170fa5f30c8604408048bd9a509f[m
+Merge: 2ab1f86 98fb22a
+Author: Cesar Huber <43020640+cesarhuber@users.noreply.github.com>
+Date:   Thu Nov 25 15:35:35 2021 -0300
+
+    Merge pull request #8 from future4code/cesar2
+    
+    cesar - adição do componente carrinho mais integrações com App.js
+
+[33mcommit 98fb22a79688f48f7a82eebbcc1867cd93a3e868[m[33m ([m[1;31morigin/cesar2[m[33m)[m
+Merge: 8b93b8d 2ab1f86
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Thu Nov 25 15:26:39 2021 -0300
+
+    cesar - resolução de conflitos
+
+[33mcommit 8b93b8df76f5d95798531c0cdbae3e62c960f426[m
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Thu Nov 25 15:13:31 2021 -0300
+
+    cesar - adição do componente carrinho mais integrações com App.js
+
+[33mcommit 3039ec55cfee8e8494d35cff57bcffd585e0727e[m
+Merge: 41c6fae d099a90
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 17:29:52 2021 +0100
+
+    Resolvendo conflitos
+
+[33mcommit 2ab1f8635f1ce202c8065d78b5411b5ff68a17e3[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Thu Nov 25 13:25:25 2021 -0300
+
+    bugfix
+
+[33mcommit 7866a0678cc774bdf540ad97b681124c68297d4d[m
+Merge: d099a90 51cb61a
+Author: Renan Lopresti Lage <88675983+renanlopresti@users.noreply.github.com>
+Date:   Thu Nov 25 13:18:53 2021 -0300
+
+    Merge pull request #7 from future4code/renan1
+    
+    Renan1
+
+[33mcommit 51cb61a13d3142ce90b80de99ff778447df044b0[m[33m ([m[1;31morigin/renan1[m[33m)[m
+Merge: 8b5ca49 d099a90
+Author: Renan Lopresti Lage <88675983+renanlopresti@users.noreply.github.com>
+Date:   Thu Nov 25 13:18:46 2021 -0300
+
+    Merge branch 'master' into renan1
+
+[33mcommit 8b5ca490e5837885176e37da4a568dbbb80df7ab[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Thu Nov 25 13:14:28 2021 -0300
+
+    finalizando cadastro
+
+[33mcommit 41c6faeb88778c52a37247e87e490c4853577391[m
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 16:33:27 2021 +0100
+
+    Atualizacoes
+
+[33mcommit d099a90a583d029b4ce1c04dace5ba83802abd9d[m
+Merge: 114c7f8 cd4b4eb
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Thu Nov 25 16:27:03 2021 +0100
+
+    Merge pull request #6 from future4code/thay1
+    
+    Home com logo e botões
+
+[33mcommit cd4b4eb401060d489fe2818f52da52af125caa68[m
+Merge: c4f28fe 114c7f8
+Author: Thayna Jorge <thaynasaad.ts@gmail.com>
+Date:   Thu Nov 25 12:26:32 2021 -0300
+
+    Conflitos Resolvidos
+
+[33mcommit c4f28fe20bb4ebc266f1cf6966d97bd574300f01[m
+Author: Thayna Jorge <thaynasaad.ts@gmail.com>
+Date:   Thu Nov 25 12:06:56 2021 -0300
+
+    Home com logo e botões
+
+[33mcommit 114c7f844b7b3db31a5168bf0d4dbb22c053de78[m
+Merge: a956d2c 635f1bd
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Thu Nov 25 15:22:38 2021 +0100
+
+    Merge pull request #5 from future4code/andre3
+    
+    Andre3
+
+[33mcommit 635f1bd69b3eb36dbd920832e10b5806002dfa55[m
+Merge: 8c6563f 81408e0
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 15:21:52 2021 +0100
+
+    Conflitos resolvidos
+
+[33mcommit 81408e09501e5dc81eaf8c418606c5e5d858541a[m
+Merge: 9cf06f4 a956d2c
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 15:18:27 2021 +0100
+
+    Corrigindo conflitos
+
+[33mcommit 8c6563f90088df8e6bd0909b3e9587c50a2e10e6[m
+Author: André <andremarks99@gmail.com>
+Date:   Thu Nov 25 15:10:27 2021 +0100
+
+    Header pronto, e APP.js atualizado
+
+[33mcommit 2c9178cf022ca6eebab26843df842652a5562c35[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Wed Nov 24 16:43:46 2021 -0300
+
+    inputs criados
+
+[33mcommit a956d2c9f83c2962faebcc70d6f80eca4c3f10f8[m
+Merge: aba2152 3294313
+Author: André Vinicius Marques <54039609+andremarks9@users.noreply.github.com>
+Date:   Wed Nov 24 19:45:35 2021 +0100
+
+    Merge pull request #3 from future4code/andre2
+    
+    Header praticamente finalizado
+
+[33mcommit 32943132a19109ed9ef326f5ee04c47a20e41b7a[m[33m ([m[1;31morigin/andre2[m[33m)[m
+Merge: 91a11bb aba2152
+Author: André <andremarks99@gmail.com>
+Date:   Wed Nov 24 19:43:44 2021 +0100
+
+    Tentando resolver os conflitos
+
+[33mcommit 9cf06f414dafdc44f35e73eb6b99c8d2266f94b4[m
+Merge: 91a11bb 3df33b1
+Author: André <andremarks99@gmail.com>
+Date:   Wed Nov 24 19:27:39 2021 +0100
+
+    Tentando resolver os conflitos
+
+[33mcommit aba2152e6dc86b20d90752b31dd10018c38b2ba0[m
+Merge: 3df33b1 05ed354
+Author: Renan Lopresti Lage <88675983+renanlopresti@users.noreply.github.com>
+Date:   Wed Nov 24 15:20:15 2021 -0300
+
+    Merge pull request #4 from future4code/renan1
+    
+    Renan1
+
+[33mcommit 05ed354aaa388f752b6018e3870e1b0947707946[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Wed Nov 24 15:18:27 2021 -0300
+
+    colocalndo switch
+
+[33mcommit 91a11bb5e3ac64862ca5e51e3d8979ccbc80169d[m
+Merge: 6c00bf2 b46883f
+Author: André <andremarks99@gmail.com>
+Date:   Wed Nov 24 19:03:28 2021 +0100
+
+    Merge branch 'andre2'
+
+[33mcommit e43adbc587592af78a66b4c8e3964bf33fc1708c[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Wed Nov 24 15:00:24 2021 -0300
+
+    atualizaçoes
+
+[33mcommit b46883fe7990a6eac45ade596f97beabb4bdc7dc[m
+Author: André <andremarks99@gmail.com>
+Date:   Wed Nov 24 18:49:14 2021 +0100
+
+    Header praticamente finalizado
+
+[33mcommit 4bc6d2d27e3cf44f2798c9577f5e343b49242ea5[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Tue Nov 23 22:52:11 2021 -0300
+
+    adicionando inputs
+
+[33mcommit 8e1af57f29bf8a1d2412d889d6db2f41ab5bab08[m
+Author: Renan Lage <renanlopresti@gmail.com>
+Date:   Tue Nov 23 21:43:38 2021 -0300
+
+    adicionando o theme
+
+[33mcommit 3df33b187fe50c25c8abd6414c65161021244c12[m
+Merge: 6c00bf2 f403c8c
+Author: Renan Lopresti Lage <88675983+renanlopresti@users.noreply.github.com>
+Date:   Tue Nov 23 18:40:25 2021 -0300
+
+    Merge pull request #2 from future4code/cesar1
+    
+    cesar - inclusão mockup.md e pdf com mockup e paleta
+
+[33mcommit f403c8c0bdab1ab61e7f3417c84cd3a028a6ead3[m[33m ([m[1;31morigin/cesar1[m[33m)[m
+Author: Cesar Huber <chuber@MacBook-Pro-de-Cesar.local>
+Date:   Tue Nov 23 17:53:46 2021 -0300
+
+    cesar - inclusão mockup.md e pdf com mockup e paleta
+
+[33mcommit 6c00bf29aacc3136362a3a4bbb82827e92251484[m
+Merge: 0d7749e 348b9b3
+Author: Cesar Huber <43020640+cesarhuber@users.noreply.github.com>
+Date:   Tue Nov 23 14:09:57 2021 -0300
+
+    Merge pull request #1 from future4code/andre1
+    
+    Header iniciado
+
+[33mcommit 348b9b3229333f66b3ccf5d44c061013314ae392[m[33m ([m[1;31morigin/andre1[m[33m)[m
+Author: André <andremarks99@gmail.com>
+Date:   Tue Nov 23 18:06:36 2021 +0100
+
+    Header iniciado
+
+[33mcommit 0d7749eb61d2a319821cfbb1f0ce80a5e8f30cbe[m
+Author: labenu-bot <84166297+labenu-bot@users.noreply.github.com>
+Date:   Mon Nov 22 10:49:47 2021 -0300
+
+    Initial commit

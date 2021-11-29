@@ -3,60 +3,16 @@ import styled from 'styled-components'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import {
+    EmptyCartMessage,
+    ContainerPrecoTotal,
+    ContainerFooter,
+    ContainerRemoverDoCarrinho,
+    ContainerPrecoServico,
+    ContainerTituloServico,
+    ContainerItensCarrinho
+} from './SCart.styled'
 
-const ContainerItensCarrinho = styled.div`
-    background-color: #F5F5F5;
-    border-radius: 5px;
-    margin: 10px auto;
-    width: 50vw;
-    display: flex;
-    align-items: center;
-`
-
-const ContainerTituloServico = styled.div`
-    width: 60%;
-    display: flex;
-    align-items: center;
-`
-
-const ContainerPrecoServico = styled.div`
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: #7C66C5;
-`
-
-const ContainerRemoverDoCarrinho = styled.div`
-    width: 15%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-`
-
-const ContainerFooter = styled.div`
-    margin-top: 20px;
-    display: flex;
-`
-
-const ContainerPrecoTotal = styled.div`
-    font-weight: 700;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 25%;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    color: #7C66C5;
-`
-
-const EmptyCartMessage = styled.div`
-    width: 50vw;
-    margin: 10px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
 
 export default class SCart extends Component {
 
@@ -64,8 +20,8 @@ export default class SCart extends Component {
         sCart: []
     }
 
-    componentDidMount(){
-        this.setState({sCart: this.props.itensCarrinho})
+    componentDidMount() {
+        this.setState({ sCart: this.props.itensCarrinho })
     }
 
     emptyCartMessage = () => {
@@ -76,12 +32,12 @@ export default class SCart extends Component {
         )
     }
 
-    componentDidUpdate(prevProps, prevState){
-        if (this.state.sCart !== prevState.sCart){
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state.sCart !== prevState.sCart) {
             this.totalCarrinho()
         }
 
-        if (this.props.itensCarrinho !== prevProps.itensCarrinho){
+        if (this.props.itensCarrinho !== prevProps.itensCarrinho) {
             this.componentDidMount()
         }
     }

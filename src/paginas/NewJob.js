@@ -91,13 +91,11 @@ export default class CadastroPage extends React.Component {
         const newPayment = this.state.paymentMethods
         newPayment.push("PayPal")
         this.setState({ paymentMethods: newPayment })
-        console.log(this.state.paymentMethods)
       }else{
         const newPayment = this.state.paymentMethods
         newPayment.filter((method, index) =>{
           if(method === "PayPal"){
             newPayment.splice(index, 1)
-            console.log(this.state.paymentMethods)
           }
         })
       }
@@ -108,13 +106,11 @@ export default class CadastroPage extends React.Component {
         const newPayment = this.state.paymentMethods
         newPayment.push("Pix")
         this.setState({ paymentMethods: newPayment })
-        console.log(this.state.paymentMethods)
       }else{
         const newPayment = this.state.paymentMethods
         newPayment.filter((method, index) =>{
           if(method === "Pix"){
             newPayment.splice(index, 1)
-            console.log(this.state.paymentMethods)
           }
         })
       }
@@ -125,13 +121,11 @@ export default class CadastroPage extends React.Component {
         const newPayment = this.state.paymentMethods
         newPayment.push("Boleto")
         this.setState({ paymentMethods: newPayment })
-        console.log(this.state.paymentMethods)
       }else{
         const newPayment = this.state.paymentMethods
         newPayment.filter((method, index) =>{
           if(method === "Boleto"){
             newPayment.splice(index, 1)
-            console.log(this.state.paymentMethods)
           }
         })
       }
@@ -142,13 +136,11 @@ export default class CadastroPage extends React.Component {
         const newPayment = this.state.paymentMethods
         newPayment.push("Cartão de Débito")
         this.setState({ paymentMethods: newPayment })
-        console.log(this.state.paymentMethods)
       }else{
         const newPayment = this.state.paymentMethods
         newPayment.filter((method, index) =>{
           if(method === "Cartão de Débito"){
             newPayment.splice(index, 1)
-            console.log(this.state.paymentMethods)
           }
         })
       }
@@ -159,13 +151,11 @@ export default class CadastroPage extends React.Component {
         const newPayment = this.state.paymentMethods
         newPayment.push("Cartão de Crédito")
         this.setState({ paymentMethods: newPayment })
-        console.log(this.state.paymentMethods)
       }else{
         const newPayment = this.state.paymentMethods
         newPayment.filter((method, index) =>{
           if(method === "Cartão de Crédito"){
             newPayment.splice(index, 1)
-            console.log(this.state.paymentMethods)
           }
         })
       }
