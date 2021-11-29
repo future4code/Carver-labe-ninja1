@@ -1,30 +1,11 @@
 import React from "react";
-import styled from "styled-components"
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import { CurrencyExchange } from "@mui/icons-material";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-const ContainerCardServico = styled.div`
-    background-color: rgb(223,219,240);
-    display: inline-grid;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-bottom: 10px;
-    box-shadow: 3px 3px 3px gray;
-    border-radius: 10px;
-`
-
-const ContainerDetalhe = styled.div`
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-`
-
 export default class CardServico extends React.Component {
     state = {
         servicoInCart: false

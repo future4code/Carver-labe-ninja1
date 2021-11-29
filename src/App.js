@@ -9,7 +9,6 @@ import { ThemeProvider } from '@mui/material/styles'
 import { theme } from './components/Theme';
 import Servicos from './paginas/serviços';
 import TelaDetalhes from './paginas/TelaDetalhes'
-import Alert from '@mui/material/Alert';
 
 const GlobalStyle = createGlobalStyle`
   body{
@@ -61,10 +60,7 @@ export default class App extends React.Component {
     const novoCarrinho = [...this.state.itensCarrinho, itemTaken]
     this.setState({ itensCarrinho: novoCarrinho })
     alert('Item adicionado ao carrinho com sucesso!')
-    // return (<Alert severity="success">Item adicionado ao carrinho com sucesso!</Alert>)
   }
-
-
 
   removeFromCart = (id) => {
     const confirmacao = window.confirm('Deseja realmente remover este item do carrinho?')
@@ -126,7 +122,6 @@ export default class App extends React.Component {
     }
 
     render() {
-      console.log(this.state.itensCarrinho)
       return (
         <ThemeProvider theme={theme}>
           <GlobalStyle />
