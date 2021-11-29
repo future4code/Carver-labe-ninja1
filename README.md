@@ -21,4 +21,4 @@ Por fim, cada ação executada pelo usuário emite um aviso de confirmação ou 
 
 Para alcançar os objetivos propostos, utilizamos a implementação de funções JS (JavaScript), API Axios e estilização com MIU (MATERIAL-UI), consolidados em React.
 
-O resultado final do nosso projeto pode ser visualizado no link https://elderly-club.surge.sh
+O resultado final do nosso projeto pode ser visualizado no link https://spurious-opinion.surge.sh
